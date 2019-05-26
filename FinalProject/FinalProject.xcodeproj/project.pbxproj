@@ -23,6 +23,19 @@
 		F7557C242299752900A44142 /* liballegro_image.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C172299752900A44142 /* liballegro_image.5.2.4.dylib */; };
 		F7557C252299752900A44142 /* liballegro_main.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C182299752900A44142 /* liballegro_main.5.2.4.dylib */; };
 		F7557C262299752900A44142 /* liballegro.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C192299752900A44142 /* liballegro.5.2.4.dylib */; };
+		F7D2AD8B229ADDAF00E4826E /* GameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2AD89229ADDAF00E4826E /* GameEngine.cpp */; };
+		F7D2AD8E229ADDC800E4826E /* IScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2AD8C229ADDC800E4826E /* IScene.cpp */; };
+		F7D2AD92229ADE8100E4826E /* IObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2AD90229ADE8100E4826E /* IObject.cpp */; };
+		F7D2AD96229ADEA900E4826E /* IControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2AD94229ADEA900E4826E /* IControl.cpp */; };
+		F7D2AD99229ADEBB00E4826E /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2AD97229ADEBB00E4826E /* Image.cpp */; };
+		F7D2AD9C229ADEDE00E4826E /* ImageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2AD9A229ADEDE00E4826E /* ImageButton.cpp */; };
+		F7D2AD9F229ADF9800E4826E /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2AD9D229ADF9800E4826E /* Point.cpp */; };
+		F7D2ADA2229AE08E00E4826E /* Resources.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2ADA0229AE08E00E4826E /* Resources.cpp */; };
+		F7D2ADA4229AE17900E4826E /* resources in Resources */ = {isa = PBXBuildFile; fileRef = F7D2ADA3229AE17900E4826E /* resources */; };
+		F7D2ADA7229AE1E700E4826E /* LOG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2ADA5229AE1E700E4826E /* LOG.cpp */; };
+		F7D2ADAA229AE35B00E4826E /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2ADA8229AE35A00E4826E /* Label.cpp */; };
+		F7D2ADAD229AE37000E4826E /* Group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2ADAB229AE37000E4826E /* Group.cpp */; };
+		F7D2ADB0229AE39A00E4826E /* Allegro5Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7D2ADAF229AE39A00E4826E /* Allegro5Exception.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +58,31 @@
 		F7557C172299752900A44142 /* liballegro_image.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_image.5.2.4.dylib; path = ../../../../../../usr/local/Cellar/allegro/5.2.4.0/lib/liballegro_image.5.2.4.dylib; sourceTree = "<group>"; };
 		F7557C182299752900A44142 /* liballegro_main.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_main.5.2.4.dylib; path = ../../../../../../usr/local/Cellar/allegro/5.2.4.0/lib/liballegro_main.5.2.4.dylib; sourceTree = "<group>"; };
 		F7557C192299752900A44142 /* liballegro.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.5.2.4.dylib; path = ../../../../../../usr/local/Cellar/allegro/5.2.4.0/lib/liballegro.5.2.4.dylib; sourceTree = "<group>"; };
+		F7D2AD89229ADDAF00E4826E /* GameEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameEngine.cpp; sourceTree = "<group>"; };
+		F7D2AD8A229ADDAF00E4826E /* GameEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameEngine.hpp; sourceTree = "<group>"; };
+		F7D2AD8C229ADDC800E4826E /* IScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IScene.cpp; sourceTree = "<group>"; };
+		F7D2AD8D229ADDC800E4826E /* IScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IScene.hpp; sourceTree = "<group>"; };
+		F7D2AD90229ADE8100E4826E /* IObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IObject.cpp; sourceTree = SOURCE_ROOT; };
+		F7D2AD91229ADE8100E4826E /* IObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IObject.hpp; sourceTree = SOURCE_ROOT; };
+		F7D2AD94229ADEA900E4826E /* IControl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IControl.cpp; sourceTree = "<group>"; };
+		F7D2AD95229ADEA900E4826E /* IControl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IControl.hpp; sourceTree = "<group>"; };
+		F7D2AD97229ADEBB00E4826E /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		F7D2AD98229ADEBB00E4826E /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Image.hpp; sourceTree = "<group>"; };
+		F7D2AD9A229ADEDE00E4826E /* ImageButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImageButton.cpp; sourceTree = "<group>"; };
+		F7D2AD9B229ADEDE00E4826E /* ImageButton.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ImageButton.hpp; sourceTree = "<group>"; };
+		F7D2AD9D229ADF9800E4826E /* Point.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
+		F7D2AD9E229ADF9800E4826E /* Point.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Point.hpp; sourceTree = "<group>"; };
+		F7D2ADA0229AE08E00E4826E /* Resources.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Resources.cpp; sourceTree = "<group>"; };
+		F7D2ADA1229AE08E00E4826E /* Resources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Resources.hpp; sourceTree = "<group>"; };
+		F7D2ADA3229AE17900E4826E /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
+		F7D2ADA5229AE1E700E4826E /* LOG.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LOG.cpp; sourceTree = "<group>"; };
+		F7D2ADA6229AE1E700E4826E /* LOG.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LOG.hpp; sourceTree = "<group>"; };
+		F7D2ADA8229AE35A00E4826E /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
+		F7D2ADA9229AE35B00E4826E /* Label.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Label.hpp; sourceTree = "<group>"; };
+		F7D2ADAB229AE37000E4826E /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = "<group>"; };
+		F7D2ADAC229AE37000E4826E /* Group.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Group.hpp; sourceTree = "<group>"; };
+		F7D2ADAE229AE39A00E4826E /* Allegro5Exception.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Allegro5Exception.hpp; sourceTree = "<group>"; };
+		F7D2ADAF229AE39A00E4826E /* Allegro5Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Allegro5Exception.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +113,31 @@
 			isa = PBXGroup;
 			children = (
 				F7557C092299740500A44142 /* main.cpp */,
+				F7D2AD89229ADDAF00E4826E /* GameEngine.cpp */,
+				F7D2AD8A229ADDAF00E4826E /* GameEngine.hpp */,
+				F7D2ADA8229AE35A00E4826E /* Label.cpp */,
+				F7D2ADA9229AE35B00E4826E /* Label.hpp */,
+				F7D2AD97229ADEBB00E4826E /* Image.cpp */,
+				F7D2AD98229ADEBB00E4826E /* Image.hpp */,
+				F7D2AD9A229ADEDE00E4826E /* ImageButton.cpp */,
+				F7D2AD9B229ADEDE00E4826E /* ImageButton.hpp */,
+				F7D2AD94229ADEA900E4826E /* IControl.cpp */,
+				F7D2AD95229ADEA900E4826E /* IControl.hpp */,
+				F7D2AD8C229ADDC800E4826E /* IScene.cpp */,
+				F7D2AD8D229ADDC800E4826E /* IScene.hpp */,
+				F7D2AD90229ADE8100E4826E /* IObject.cpp */,
+				F7D2AD91229ADE8100E4826E /* IObject.hpp */,
+				F7D2ADAB229AE37000E4826E /* Group.cpp */,
+				F7D2ADAC229AE37000E4826E /* Group.hpp */,
+				F7D2AD9D229ADF9800E4826E /* Point.cpp */,
+				F7D2AD9E229ADF9800E4826E /* Point.hpp */,
+				F7D2ADA0229AE08E00E4826E /* Resources.cpp */,
+				F7D2ADA1229AE08E00E4826E /* Resources.hpp */,
+				F7D2ADA5229AE1E700E4826E /* LOG.cpp */,
+				F7D2ADA6229AE1E700E4826E /* LOG.hpp */,
+				F7D2ADAF229AE39A00E4826E /* Allegro5Exception.cpp */,
+				F7D2ADAE229AE39A00E4826E /* Allegro5Exception.hpp */,
+				F7D2ADA3229AE17900E4826E /* resources */,
 				F7557BF7229973B400A44142 /* FinalProject */,
 				F7557BF6229973B400A44142 /* Products */,
 				F7557C0C2299752800A44142 /* Frameworks */,
@@ -178,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7557BFC229973B500A44142 /* Assets.xcassets in Resources */,
+				F7D2ADA4229AE17900E4826E /* resources in Resources */,
 				F7557BFF229973B500A44142 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +253,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D2AD92229ADE8100E4826E /* IObject.cpp in Sources */,
+				F7D2ADAA229AE35B00E4826E /* Label.cpp in Sources */,
 				F7557C0B2299740500A44142 /* main.cpp in Sources */,
+				F7D2ADA7229AE1E700E4826E /* LOG.cpp in Sources */,
+				F7D2AD8B229ADDAF00E4826E /* GameEngine.cpp in Sources */,
+				F7D2ADA2229AE08E00E4826E /* Resources.cpp in Sources */,
+				F7D2AD99229ADEBB00E4826E /* Image.cpp in Sources */,
+				F7D2ADAD229AE37000E4826E /* Group.cpp in Sources */,
+				F7D2AD9F229ADF9800E4826E /* Point.cpp in Sources */,
+				F7D2AD9C229ADEDE00E4826E /* ImageButton.cpp in Sources */,
+				F7D2AD96229ADEA900E4826E /* IControl.cpp in Sources */,
+				F7D2ADB0229AE39A00E4826E /* Allegro5Exception.cpp in Sources */,
+				F7D2AD8E229ADDC800E4826E /* IScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

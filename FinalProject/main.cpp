@@ -1,24 +1,21 @@
-//
-//  main.cpp
-//  FinalProject
-//
-//  Created by lo peichieh on 2019/5/25.
-//  Copyright © 2019 lo peichieh. All rights reserved.
-//
-
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_font.h>
+#include "GameEngine.hpp"
+#include "LOG.hpp"
+#include "StageSelectScene.hpp"
+#include "PlayScene.hpp"
+#include "WinScene.hpp"
+#include "LoseScene.hpp"
+#include "StartScene.hpp"
 
 int main(int argc, char **argv) {
-    al_init();
-    al_init_font_addon();
-    ALLEGRO_DISPLAY* display = al_create_display(800, 600);
-    ALLEGRO_FONT* font = al_create_builtin_font();
-    al_clear_to_color(al_map_rgb(0, 0, 0));
-    al_draw_text(font, al_map_rgb(255, 255, 255), 400, 300, ALLEGRO_ALIGN_CENTER, "Welcome to Allegro!");
-    al_flip_display();
-    al_rest(5.0);
-    al_destroy_font(font);
-    al_destroy_display(display);
+    
+    Engine::LOG::SetConfig(true);
+    Engine::GameEngine& game = Engine::GameEngine::GetInstance();
+    game.AddNewScene("stage-select", new StageSelectScene());
+    game.AddNewScene("play", new PlayScene());
+    game.AddNewScene("lose", new LoseScene());
+    game.AddNewScene("win", new WinScene());
+    // TODO 1 (1/2): Add a New Scene here and change the start scene below.
+    game.AddNewScene("start", new StartScene());
+    game.Start("start", 60, 1600, 832);
     return 0;
 }

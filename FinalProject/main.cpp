@@ -1,10 +1,7 @@
 #include "GameEngine.hpp"
 #include "LOG.hpp"
-#include "StageSelectScene.hpp"
-#include "PlayScene.hpp"
 #include "WinScene.hpp"
 #include "LoseScene.hpp"
-#include "StartScene.hpp"
 
 int main(int argc, char **argv) {
     
@@ -16,6 +13,6 @@ int main(int argc, char **argv) {
     game.AddNewScene("win", new WinScene());
     // TODO 1 (1/2): Add a New Scene here and change the start scene below.
     game.AddNewScene("start", new StartScene());
-    game.Start("start", 60, 1600, 832);
+    game.Start("start", 60, 800, 600);
     return 0;
 }

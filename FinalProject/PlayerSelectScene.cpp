@@ -12,18 +12,18 @@ void PlayerSelectScene::Initialize() {
    
     Engine::ImageButton* btn;
     
-    btn = new Engine::ImageButton("player-select/dirt.png", "player-select/floor.png", halfW-100, halfH * 3 / 2 - 50, 150, 50);
+    btn = new Engine::ImageButton("player-select/dirt.png", "player-select/floor.png", halfW-275, 450, 150, 50);
     btn->SetOnClickCallback(std::bind(&PlayerSelectScene::StartOnClick,this,2));
     AddNewControlObject(btn);
     
-    btn = new Engine::ImageButton("player-select/dirt.png", "player-select/floor.png", halfW+100, halfH * 3 / 2 - 50, 150, 50);
+    btn = new Engine::ImageButton("player-select/dirt.png", "player-select/floor.png", halfW+125, 450, 150, 50);
     
     btn->SetOnClickCallback(std::bind(&PlayerSelectScene::StartOnClick,this,2));
     AddNewControlObject(btn);
     
-    AddNewObject(new Engine::Label("YOU ARE...", "Black.ttf", 48, halfW, halfH-250, 255, 255, 255, 255, 0.5, 0.5));
-    AddNewObject(new Engine::Label("MALE", "Black.ttf", 24, halfW-200, halfH+250 , 255, 255, 255, 255, 0.5, 0.5));
-    AddNewObject(new Engine::Label("FEMALE", "Black.ttf", 24, halfW+200, halfH+250 , 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("YOU ARE...", "OldGateLaneNF.ttf", 48, halfW, halfH-250, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("MALE", "OldGateLaneNF.ttf", 30, halfW-200, halfH+250 , 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("FEMALE", "OldGateLaneNF.ttf", 30, halfW+200, halfH+250 , 255, 255, 255, 255, 0.5, 0.5));
 
    
     

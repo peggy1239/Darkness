@@ -12,24 +12,27 @@ void PlayerSelectScene::Initialize() {
    
     Engine::ImageButton* btn;
     
-    btn = new Engine::ImageButton("player-select/dirt.png", "player-select/floor.png", halfW-275, 450, 150, 50);
+    btn = new Engine::ImageButton("player-select/boy1.png", "player-select/boy2.png", halfW-330, 125,280 , 360);
+    btn->SetOnClickCallback(std::bind(&PlayerSelectScene::StartOnClick,this,1));
+    AddNewControlObject(btn);
+    
+    btn = new Engine::ImageButton("player-select/girl1.png", "player-select/girl2.png", halfW+50, 125, 280, 360);
+    
     btn->SetOnClickCallback(std::bind(&PlayerSelectScene::StartOnClick,this,2));
     AddNewControlObject(btn);
     
-    btn = new Engine::ImageButton("player-select/dirt.png", "player-select/floor.png", halfW+125, 450, 150, 50);
-    
-    btn->SetOnClickCallback(std::bind(&PlayerSelectScene::StartOnClick,this,2));
-    AddNewControlObject(btn);
-    
-    AddNewObject(new Engine::Label("YOU ARE...", "OldGateLaneNF.ttf", 48, halfW, halfH-250, 255, 255, 255, 255, 0.5, 0.5));
-    AddNewObject(new Engine::Label("MALE", "OldGateLaneNF.ttf", 30, halfW-200, halfH+250 , 255, 255, 255, 255, 0.5, 0.5));
-    AddNewObject(new Engine::Label("FEMALE", "OldGateLaneNF.ttf", 30, halfW+200, halfH+250 , 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("YOU ARE...", "OldGateLaneNF.ttf", 52, halfW, halfH-250, 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("MALE", "OldGateLaneNF.ttf", 38, halfW-200, halfH+230 , 255, 255, 255, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("FEMALE", "OldGateLaneNF.ttf", 38, halfW+200, halfH+230 , 255, 255, 255, 255, 0.5, 0.5));
 
    
     
     
 }
 void PlayerSelectScene:: StartOnClick(int stage){
+    //True for male; False for female
+    if(stage== 1)PlayScene::gender = true;
+    else PlayScene::gender = false;
     
     Engine::GameEngine::GetInstance().ChangeScene("room1");
     

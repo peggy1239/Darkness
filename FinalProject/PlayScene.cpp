@@ -20,6 +20,7 @@
 #include "DirtyEffect.hpp"
 #include "AudioHelper.hpp"
 
+bool PlayScene::gender = false;
 bool PlayScene::DebugMode = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
 const int PlayScene::MapWidth = 20, PlayScene::MapHeight = 13;
@@ -136,19 +137,7 @@ void PlayScene::Update(float deltaTime) {
 }
 void PlayScene::Draw() const {
     IScene::Draw();
-    if (DebugMode) {
-        // Draw reverse BFS distance on all reachable blocks.
-        for (int i = 0; i < MapHeight; i++) {
-            for (int j = 0; j < MapWidth; j++) {
-                if (mapDistance[i][j] != -1) {
-                    // Not elegant nor efficient, but it's quite enough for debugging.
-                    Engine::Label label(std::to_string(mapDistance[i][j]), "pirulen.ttf", 32, (j + 0.5) * BlockSize, (i + 0.5) * BlockSize);
-                    label.Anchor = Engine::Point(0.5, 0.5);
-                    label.Draw();
-                }
-            }
-        }
-    }
+    
 }
 void PlayScene::OnMouseDown(int button, int mx, int my) {
     if ((button & 1) && !imgTarget->Visible && preview) {

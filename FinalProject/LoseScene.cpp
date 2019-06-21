@@ -8,15 +8,24 @@ void LoseScene::Initialize() {
 	int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
 	int halfW = w / 2;
 	int halfH = h / 2;
-	AddNewObject(new Engine::Label("You Lose :(", "pirulen.ttf", 48, halfW, halfH / 2, 255, 255, 255, 255, 0.5, 0.5));
+	AddNewObject(new Engine::Label("YOU DIE", "Gore.ttf", 80, halfW-100, halfH / 2, 255, 0, 0, 255, 0.5, 0.5));
 	Engine::ImageButton* btn;
-	btn = new Engine::ImageButton("win/dirt.png", "win/floor.png", halfW - 200, halfH * 3 / 2 - 50, 400, 100);
-	btn->SetOnClickCallback(std::bind(&LoseScene::BackOnClick, this, 2));
+	btn = new Engine::ImageButton("lose/again1.png", "lose/again2.png", halfW - 300, halfH * 3 / 2 -100, 280, 120);//AGAIN
+	btn->SetOnClickCallback(std::bind(&LoseScene::BackOnClick, this, 1));
 	AddNewControlObject(btn);
-	AddNewObject(new Engine::Label("Back", "pirulen.ttf", 48, halfW, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5));
+    
+    btn = new Engine::ImageButton("lose/exit1.png", "lose/exit2.png", halfW + 30, halfH * 3 / 2-100, 280, 120);//EXIT
+    btn->SetOnClickCallback(std::bind(&LoseScene::BackOnClick, this, 2));
+    AddNewControlObject(btn);
+    
+    
+	//AddNewObject(new Engine::Label("Back", "pirulen.ttf", 48, halfW, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5));
 	AudioHelper::PlayAudio("lose.wav");
 }
 void LoseScene::BackOnClick(int stage) {
 	// Change to select scene.
-	Engine::GameEngine::GetInstance().ChangeScene("stage-select");
+    
+    
+	if(stage==1)Engine::GameEngine::GetInstance().ChangeScene("room1");
+    else Engine::GameEngine::GetInstance().ChangeScene("start");
 }

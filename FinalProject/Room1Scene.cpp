@@ -49,10 +49,10 @@ void Room1Scene::BackOnClick(int stage) {
 }
 
 void Room1Scene::Draw() const{
-    /*
+    
     ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/start/Start.png");
     al_draw_bitmap(StartImg, 0, 0, 1);
-     */
+     
     Group::Draw();
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F75021B622BCFC24008704B3 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021B422BCFC24008704B3 /* Player.cpp */; };
 		F7557BFC229973B500A44142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7557BFB229973B500A44142 /* Assets.xcassets */; };
 		F7557BFF229973B500A44142 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7557BFD229973B500A44142 /* MainMenu.xib */; };
 		F7557C1A2299752900A44142 /* liballegro_video.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C0D2299752800A44142 /* liballegro_video.5.2.4.dylib */; };
@@ -68,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F75021B422BCFC24008704B3 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		F75021B522BCFC24008704B3 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		F7557BF5229973B400A44142 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7557BFB229973B500A44142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7557BFE229973B500A44142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				F78833BF22A3D5B60066B270 /* DirtyEffect.hpp */,
 				F78833C122A3D5B70066B270 /* Enemy.cpp */,
 				F78833BA22A3D5B60066B270 /* Enemy.hpp */,
+				F75021B422BCFC24008704B3 /* Player.cpp */,
+				F75021B522BCFC24008704B3 /* Player.hpp */,
 				F78833AF22A3D5B50066B270 /* ExplosionEffect.cpp */,
 				F788339222A3D5B30066B270 /* ExplosionEffect.hpp */,
 				F7557BF7229973B400A44142 /* FinalProject */,
@@ -404,6 +409,7 @@
 				F78833C522A3D5B70066B270 /* Plane.cpp in Sources */,
 				F788340022A3D5CD0066B270 /* TankEnemy.cpp in Sources */,
 				F78833C422A3D5B70066B270 /* Allegro5Exception.cpp in Sources */,
+				F75021B622BCFC24008704B3 /* Player.cpp in Sources */,
 				F788340522A3D5CD0066B270 /* NewEnemy.cpp in Sources */,
 				F78833C822A3D5B70066B270 /* IScene.cpp in Sources */,
 				F78833DD22A3D5B70066B270 /* MachineGunTurret.cpp in Sources */,

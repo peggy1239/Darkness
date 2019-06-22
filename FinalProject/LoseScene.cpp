@@ -26,6 +26,8 @@ void LoseScene::BackOnClick(int stage) {
 	// Change to select scene.
     
     
-	if(stage==1)Engine::GameEngine::GetInstance().ChangeScene("room1");
-    else Engine::GameEngine::GetInstance().ChangeScene("start");
+	if(stage==1)
+        Engine::GameEngine::GetInstance().ChangeScene("player-select");
+    else
+        Engine::GameEngine::GetInstance().ChangeScene("start");
 }

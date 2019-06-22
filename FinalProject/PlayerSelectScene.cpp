@@ -31,11 +31,13 @@ void PlayerSelectScene::Initialize() {
 }
 void PlayerSelectScene:: StartOnClick(int stage){
     //True for male; False for female
-    if(stage== 1)PlayScene::gender = true;
-    else PlayScene::gender = false;
+    PlayScene* scene = dynamic_cast<PlayScene*>(Engine::GameEngine::GetInstance().GetScene("room1"));
+    if (stage == 1)
+        scene -> gender = true;
+    else
+        scene -> gender = false;
     
     Engine::GameEngine::GetInstance().ChangeScene("room1");
-    
 }
 
 /*

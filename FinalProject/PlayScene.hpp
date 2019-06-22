@@ -57,7 +57,6 @@ public:
     void Hit();
     int GetMoney() const;
     void EarnMoney(int money);
-    void ReadMap();
     void ReadEnemyWave();
     void ConstructUI();
     void UIBtnClicked(int id);

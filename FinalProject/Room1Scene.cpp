@@ -13,7 +13,7 @@ void Room1Scene::Initialize() {
     int halfW = w / 2;
     int halfH = h / 2;
     role = new Player(gender,50,200,40,40);
-    box = new Box(0,halfW-64,400,128,128);
+    box = new Box(0,halfW-64,410,128,128);
     background = al_load_bitmap("resources/images/play/playscene.png");
 
     bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("start.ogg").get());
@@ -34,7 +34,7 @@ void Room1Scene::BackOnClick(int stage) {
 
 void Room1Scene::Draw() const{
     
-    al_draw_bitmap(background, 0, 0, 1);
+    al_draw_bitmap(background, 0, 0, 0);
     box->Draw();
     role->Draw();
     Group::Draw();
@@ -42,9 +42,29 @@ void Room1Scene::Draw() const{
 }
 bool Room1Scene::BoxAndPlayerIsNear(){
     
-    if(role->Position.x < box->Position.x+15 && role->Position.x < box->Position.x - 15){
-        
+    if(box->directions==0 || box->directions==1){
+        if(role->directions==1&&box->directions==0){
+            if(role->Position.y > box->Position.y-100&&role->Position.x < box->Position.x+30 && role->Position.x > box->Position.x - 30)
+                return true;
+        }
+        else if(role->directions==0&&box->directions==1){
+            if(role->Position.y < box->Position.y+100&&role->Position.x < box->Position.x+30 && role->Position.x > box->Position.x - 30)
+                return true;
+        }
     }
+    else if(box->directions==2 || box->directions==3){
+        if(role->directions==2&&box->directions==3){
+            if(role->Position.x < box->Position.x+100&&role->Position.y < box->Position.y+30 && role->Position.y > box->Position.y - 30)
+                return true;
+        }
+        else if(role->directions==3&&box->directions==2){
+            if(role->Position.x > box->Position.x-100&&role->Position.y < box->Position.y+30 && role->Position.y > box->Position.y - 30)
+                return true;
+        }
+    }
+    
+    
+    return false;
 }
 void Room1Scene::OnKeyDown(int keyCode){
     
@@ -79,10 +99,9 @@ void Room1Scene::OnKeyDown(int keyCode){
             role->directions = 3;
         }
     }
-    if(keyCode==ALLEGRO_KEY_SPACE){
+    if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear()){
         box->state = 1;
     }
-    
     
 }
 void Room1Scene::OnKeyUp(int keyCode){

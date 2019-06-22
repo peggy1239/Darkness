@@ -38,7 +38,7 @@ Box::Box(int directions,float x,float y,float w,float h){
 void Box::Draw()const{
     
     
-    al_draw_bitmap(picture[state  ], Position.x, Position.y, 1);
+    al_draw_bitmap(picture[state], Position.x, Position.y, 0);
     
     
 }

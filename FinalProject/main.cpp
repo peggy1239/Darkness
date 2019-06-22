@@ -10,6 +10,8 @@
 #include "LoseScene.hpp"
 #include "StartScene.hpp"
 #include "Room1Scene.hpp"
+#include "HowScene.hpp"
+
 
 int main(int argc, char **argv) {
 	Engine::LOG::SetConfig(true);
@@ -18,6 +20,7 @@ int main(int argc, char **argv) {
 	game.AddNewScene("room1", new Room1Scene());
 	game.AddNewScene("lose", new LoseScene());
 	game.AddNewScene("win", new WinScene());
+    game.AddNewScene("how", new HowScene());
 	// TODO 1 (1/2): Add a New Scene here and change the start scene below.
     game.AddNewScene("start", new StartScene());
 	game.Start("start", 60, 800, 600);

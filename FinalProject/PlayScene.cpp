@@ -111,7 +111,7 @@ void PlayScene::Update(float deltaTime) {
 void PlayScene::Draw() const {
     
     ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/play/playscene.png");
-    al_draw_bitmap(StartImg, 0, 0, 1);
+    al_draw_bitmap(StartImg, 0, 0, 0);
     
     IScene::Draw();
     

@@ -16,7 +16,15 @@ void StartScene::Initialize() {
     
     AddNewObject(new Engine::Label("Darkness", "Gore.ttf", 120, halfW, halfH-50, 255, 0, 0, 255, 0.5, 0.5));
     AddNewObject(new Engine::Label("Press enter to start", "Gore.ttf", 30, halfW, halfH+50 , 255, 255, 255, 255, 0.5, 0.5));
+    //buttom
+    Engine::ImageButton* btn;
+    btn = new Engine::ImageButton("start/question1.png", "start/question2.png", 680 , 400, 100, 100);//AGAIN
+    btn->SetOnClickCallback(std::bind(&StartScene::BackOnClick, this, 1));
+    AddNewControlObject(btn);
     
+    btn = new Engine::ImageButton("start/unmute1.png", "start/unmute2.png", 680, 500, 100, 100);//EXIT
+    btn->SetOnClickCallback(std::bind(&StartScene::BackOnClick, this, 2));
+    AddNewControlObject(btn);
     
     // Not a safe way, however we only free while change scene, so it's fine.
     ///*
@@ -34,12 +42,16 @@ void StartScene::BackOnClick(int stage) {
     
     //PlayScene* scene = dynamic_cast<PlayScene*>(Engine::GameEngine::GetInstance().GetScene("stage-select"));
     //scene->MapId = stage;
-    Engine::GameEngine::GetInstance().ChangeScene("stage-select");
+    if(stage==1){
+        Engine::GameEngine::GetInstance().ChangeScene("how");
+    }
+    
+    
 }
 
 void StartScene::Draw() const{
     ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/start/Start.png");
-    al_draw_bitmap(StartImg, 0, 0, 1);
+    al_draw_bitmap(StartImg, 0, 0, 0);
     Group::Draw();
     
 }

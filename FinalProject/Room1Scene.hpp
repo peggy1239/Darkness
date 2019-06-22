@@ -32,6 +32,6 @@ public:
     void Draw() const override;
     void OnKeyDown(int keyCode) override;
     void OnKeyUp(int keyCode) override;
-    bool BoxAndPlayerIsNear()
+    bool BoxAndPlayerIsNear();
 };
 #endif /* Room1Scene_hpp */

@@ -8,7 +8,7 @@
 #include "Player.hpp"
 #include "Point.cpp"
 class Player;
-class PlayScene final : public Engine::IScene {
+class PlayScene: public Engine::IScene {
 private:
     enum TileType {
         TILE_DIRT,
@@ -20,7 +20,7 @@ protected:
     int money;
     int SpeedMult;
 public:
-    Point player;
+    Player* role;
     static bool DebugMode;
     static bool gender;//
     static const std::vector<Engine::Point> directions;

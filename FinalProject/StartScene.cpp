@@ -17,6 +17,16 @@ void StartScene::Initialize() {
     AddNewObject(new Engine::Label("Darkness", "Gore.ttf", 120, halfW, halfH-50, 255, 0, 0, 255, 0.5, 0.5));
     AddNewObject(new Engine::Label("Press enter to start", "Gore.ttf", 30, halfW, halfH+50 , 255, 255, 255, 255, 0.5, 0.5));
     
+    Engine::ImageButton* btn;//how
+    btn = new Engine::ImageButton("start/how1.png", "start/how2.png", w-120, halfH-60, 100, 100);
+    btn->SetOnClickCallback(std::bind(&StartScene::BackOnClick, this, 1));
+    AddNewControlObject(btn);
+    
+    btn = new Engine::ImageButton("start/unmute1.png", "start/unmute2.png", w-120, halfH +60, 100, 100);
+    btn->SetOnClickCallback(std::bind(&StartScene::BackOnClick, this, 2));
+    AddNewControlObject(btn);
+    
+    
     
     // Not a safe way, however we only free while change scene, so it's fine.
     ///*
@@ -34,7 +44,11 @@ void StartScene::BackOnClick(int stage) {
     
     //PlayScene* scene = dynamic_cast<PlayScene*>(Engine::GameEngine::GetInstance().GetScene("stage-select"));
     //scene->MapId = stage;
-    Engine::GameEngine::GetInstance().ChangeScene("stage-select");
+    if(stage==1)//how
+        Engine::GameEngine::GetInstance().ChangeScene("how");
+    
+    
+    
 }
 
 void StartScene::Draw() const{

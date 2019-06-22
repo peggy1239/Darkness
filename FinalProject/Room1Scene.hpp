@@ -13,6 +13,7 @@
 #include "ImageButton.hpp"
 #include "PlayerSelectScene.hpp"
 #include "Player.hpp"
+#include "Box.hpp"
 class Player;
 
 class Room1Scene final : public Engine::IScene {
@@ -21,11 +22,16 @@ private:
 public:
     Player* role;
     ALLEGRO_BITMAP* background;
+    Box* box;
+    bool keyState[4]={false};
     int gender;
+    void Update(float deltaTime) override;
     explicit Room1Scene() = default;
     void Initialize() override;
     void BackOnClick(int stage);
     void Draw() const override;
     void OnKeyDown(int keyCode) override;
+    void OnKeyUp(int keyCode) override;
+    bool BoxAndPlayerIsNear()
 };
 #endif /* Room1Scene_hpp */

@@ -16,7 +16,7 @@ void Room1Scene::Initialize() {
     box = new Box(0,halfW-64,410,128,128);
     background = al_load_bitmap("resources/images/play/playscene.png");
 
-    bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("start.ogg").get());
+    bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
     al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
     al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
     al_play_sample_instance(bgmInstance);

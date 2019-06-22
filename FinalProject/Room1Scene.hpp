@@ -10,8 +10,7 @@ class Room1Scene final : public Engine::IScene {
 private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
 public:
-    //void Update(float deltaTime) override;
-    static bool gender;
+    bool gender;
     Player* role;
     explicit Room1Scene() = default;
     void Initialize() override;

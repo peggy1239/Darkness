@@ -15,7 +15,7 @@ int main(int argc, char **argv) {
 	Engine::LOG::SetConfig(true);
 	Engine::GameEngine& game = Engine::GameEngine::GetInstance();
 	game.AddNewScene("player-select", new PlayerSelectScene());
-	game.AddNewScene("play", new PlayScene());
+	game.AddNewScene("room1", new Room1Scene());
 	game.AddNewScene("lose", new LoseScene());
 	game.AddNewScene("win", new WinScene());
 	// TODO 1 (1/2): Add a New Scene here and change the start scene below.

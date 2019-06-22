@@ -5,6 +5,7 @@
 #include "Enemy.hpp"
 #include "ExplosionEffect.hpp"
 #include "DirtyEffect.hpp"
+#include "MachineGunTurret.hpp"
 #include "AudioHelper.hpp"
 
 PlayScene* Enemy::getPlayScene() {

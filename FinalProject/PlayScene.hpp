@@ -20,7 +20,8 @@ protected:
     int money;
     int SpeedMult;
 public:
-    Point player;
+    Player* role;
+    Engine::Point player;
     static bool DebugMode;
     static bool gender;//
     static const std::vector<Engine::Point> directions;

@@ -20,6 +20,6 @@ int main(int argc, char **argv) {
 	game.AddNewScene("win", new WinScene());
 	// TODO 1 (1/2): Add a New Scene here and change the start scene below.
     game.AddNewScene("start", new StartScene());
-	game.Start("start", 60, 800, 600);
+	game.Start("lose", 60, 800, 600);
 	return 0;
 }

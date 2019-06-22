@@ -2,6 +2,7 @@
 #include "Room1Scene.hpp"
 #include "PlayerSelectScene.hpp"
 #include "PlayScene.hpp"
+#include "Player.hpp"
 #include "AudioHelper.hpp"
 #include "LOG.hpp"
 
@@ -10,9 +11,10 @@ void Room1Scene::Initialize() {
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     int halfW = w / 2;
     int halfH = h / 2;
+    role = new Player(gender,50,200,40,40);
     
-    
-    
+    background = al_load_bitmap("resources/images/play/playscene.png");
+
     bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("start.ogg").get());
     al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
     al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
@@ -32,9 +34,8 @@ void Room1Scene::BackOnClick(int stage) {
 
 void Room1Scene::Draw() const{
     
-    ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/play/playscene.png");
-    al_draw_bitmap(StartImg, 0, 0, 1);
-     
+    al_draw_bitmap(background, 0, 0, 1);
+    role->Draw();
     Group::Draw();
     
 }

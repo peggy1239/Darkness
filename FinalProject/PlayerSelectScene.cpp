@@ -1,5 +1,6 @@
 #include "PlayerSelectScene.hpp"
 #include "PlayScene.hpp"
+#include "Room1Scene.hpp"
 #include "AudioHelper.hpp"
 #include "Slider.hpp"
 #include "LOG.hpp"
@@ -31,12 +32,11 @@ void PlayerSelectScene::Initialize() {
 }
 void PlayerSelectScene:: StartOnClick(int stage){
     //True for male; False for female
-    PlayScene* scene = dynamic_cast<PlayScene*>(Engine::GameEngine::GetInstance().GetScene("room1"));
+    Room1Scene* scene = dynamic_cast<Room1Scene*>(Engine::GameEngine::GetInstance().GetScene("room1"));
     if (stage == 1)
-        scene -> gender = true;
+        scene->gender = 0;
     else
-        scene -> gender = false;
-    
+        scene->gender = 1;
     Engine::GameEngine::GetInstance().ChangeScene("room1");
 }
 

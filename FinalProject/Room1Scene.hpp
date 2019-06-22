@@ -12,11 +12,16 @@
 #include "GameEngine.hpp"
 #include "ImageButton.hpp"
 #include "PlayerSelectScene.hpp"
+#include "Player.hpp"
+class Player;
 
 class Room1Scene final : public Engine::IScene {
 private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
 public:
+    Player* role;
+    ALLEGRO_BITMAP* background;
+    int gender;
     explicit Room1Scene() = default;
     void Initialize() override;
     void BackOnClick(int stage);

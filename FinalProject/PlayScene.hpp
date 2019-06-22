@@ -5,7 +5,9 @@
 #include "Sprite.hpp"
 #include "Label.hpp"
 #include "Turret.hpp"
-
+#include "Player.hpp"
+#include "Point.cpp"
+class Player;
 class PlayScene final : public Engine::IScene {
 private:
     enum TileType {
@@ -18,8 +20,9 @@ protected:
     int money;
     int SpeedMult;
 public:
+    Point player;
     static bool DebugMode;
-    static bool gender;
+    static bool gender;//
     static const std::vector<Engine::Point> directions;
     static const int MapWidth, MapHeight;
     static const int BlockSize;
@@ -50,9 +53,6 @@ public:
     void Initialize() override;
     void Update(float deltaTime) override;
     void Draw() const override;
-    void OnMouseDown(int button, int mx, int my) override;
-    void OnMouseMove(int mx, int my) override;
-    void OnMouseUp(int button, int mx, int my) override;
     void OnKeyDown(int keyCode) override;
     void Hit();
     int GetMoney() const;

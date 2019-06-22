@@ -19,6 +19,8 @@
 #include "Plane.hpp"
 #include "DirtyEffect.hpp"
 #include "AudioHelper.hpp"
+#include "Player.hpp"
+#define vel 5
 
 bool PlayScene::gender = false;
 bool PlayScene::DebugMode = false;
@@ -36,24 +38,10 @@ Engine::Point PlayScene::GetClientSize() {
 void PlayScene::Initialize() {
     // TODO 5 (1/2): There's a bug in this file, which crashes the game when you win. Try to find it.
     // TODO 5 (2/2): There's a cheat code in this file. Try to find it.
-    mapState.clear();
-    keyStrokes.clear();
-    ticks = 0;
     lives = 10;
     money = 150;
     SpeedMult = 1;
-    // Add groups from bottom to top.
-    AddNewObject(TileMapGroup = new Group());
-    AddNewObject(GroundEffectGroup = new Group());
-    AddNewObject(DebugIndicatorGroup = new Group());
-    AddNewObject(TowerGroup = new Group());
-    AddNewObject(EnemyGroup = new Group());
-    AddNewObject(BulletGroup = new Group());
-    AddNewObject(EffectGroup = new Group());
-    // Should support buttons.
-    AddNewControlObject(UIGroup = new Group());
-    ReadMap();
-    ReadEnemyWave();
+
     mapDistance = CalculateBFSDistance();
     ConstructUI();
     imgTarget = new Engine::Image("play/target.png", 0, 0);
@@ -85,11 +73,12 @@ void PlayScene::Update(float deltaTime) {
         preview->Position = Engine::GameEngine::GetInstance().GetMousePosition();
     }
     // Check if we should create new enemy.
+    /*
     ticks += deltaTime;
     if (enemyWaveData.empty()) {
         if (EnemyGroup->GetObjects().empty()) {
             // Free resources.
-            /*
+            //*
              delete TileMapGroup;
              delete GroundEffectGroup;
              delete DebugIndicatorGroup;
@@ -99,7 +88,7 @@ void PlayScene::Update(float deltaTime) {
              delete EffectGroup;
              delete UIGroup;
              delete imgTarget;
-             */
+             //
             // Win.
             Engine::GameEngine::GetInstance().ChangeScene("win");
         }
@@ -134,106 +123,38 @@ void PlayScene::Update(float deltaTime) {
     enemy->UpdatePath(mapDistance);
     // Compensate the time lost.
     enemy->Update(ticks);
+    */
 }
 void PlayScene::Draw() const {
     IScene::Draw();
     
 }
-void PlayScene::OnMouseDown(int button, int mx, int my) {
-    if ((button & 1) && !imgTarget->Visible && preview) {
-        // Cancel turret construct.
-        UIGroup->RemoveObject(preview->GetObjectIterator());
-        preview = nullptr;
-    }
-    IScene::OnMouseDown(button, mx, my);
-}
-void PlayScene::OnMouseMove(int mx, int my) {
-    IScene::OnMouseMove(mx, my);
-    const int x = mx / BlockSize;
-    const int y = my / BlockSize;
-    if (!preview || x < 0 || x >= MapWidth || y < 0 || y >= MapHeight) {
-        imgTarget->Visible = false;
-        return;
-    }
-    imgTarget->Visible = true;
-    imgTarget->Position.x = x * BlockSize;
-    imgTarget->Position.y = y * BlockSize;
-}
-void PlayScene::OnMouseUp(int button, int mx, int my) {
-    IScene::OnMouseUp(button, mx, my);
-    if (!imgTarget->Visible)
-        return;
-    const int x = mx / BlockSize;
-    const int y = my / BlockSize;
-    if (button & 1) {
-        if (mapState[y][x] != TILE_OCCUPIED) {
-            if (!preview)
-                return;
-            // Check if valid.
-            if (!CheckSpaceValid(x, y)) {
-                Engine::Sprite* sprite;
-                GroundEffectGroup->AddNewObject(sprite = new DirtyEffect("play/target-invalid.png", 1, x * BlockSize + BlockSize / 2, y * BlockSize + BlockSize / 2));
-                sprite->Rotation = 0;
-                return;
-            }
-            // Purchase.
-            EarnMoney(-preview->GetPrice());
-            // Remove Preview.
-            preview->GetObjectIterator()->first = false;
-            UIGroup->RemoveObject(preview->GetObjectIterator());
-            // Construct real turret.
-            preview->Position.x = x * BlockSize + BlockSize / 2;
-            preview->Position.y = y * BlockSize + BlockSize / 2;
-            preview->Enabled = true;
-            preview->Preview = false;
-            preview->Tint = al_map_rgba(255, 255, 255, 255);
-            TowerGroup->AddNewObject(preview);
-            // Remove Preview.
-            preview = nullptr;
-            
-            mapState[y][x] = TILE_OCCUPIED;
-            OnMouseMove(mx, my);
-        }
-    }
-}
+
 void PlayScene::OnKeyDown(int keyCode) {
     IScene::OnKeyDown(keyCode);
-    if (keyCode == ALLEGRO_KEY_TAB) {
-        DebugMode = !DebugMode;
-    }
-    else {
-        keyStrokes.push_back(keyCode);
-        if (keyStrokes.size() > code.size())
-            keyStrokes.pop_front();
-        if (keyCode == ALLEGRO_KEY_ENTER && keyStrokes.size() == code.size()) {
-            auto it = keyStrokes.begin();
-            for (int c : code) {
-                if (*it != c && (c == ALLEGRO_KEYMOD_SHIFT && *it != ALLEGRO_KEY_LSHIFT && *it != ALLEGRO_KEY_RSHIFT))
-                    return;
-                ++it;
-            }
-            EffectGroup->AddNewObject(new Plane());
-            money += 10000;
-        }
-    }
-    if (keyCode == ALLEGRO_KEY_Q) {
+   
+    if (keyCode == ALLEGRO_KEY_UP) {//0
         // Hotkey for MachineGunTurret.
-        UIBtnClicked(0);
+        if(role->direction!=0) role->direction = 0;
+        else role->Velocity.y -= vel;//vel for velocity
     }
-    else if (keyCode == ALLEGRO_KEY_W) {
+    if (keyCode == ALLEGRO_KEY_DOWN) {//1
         // Hotkey for LaserTurret.
-        UIBtnClicked(1);
+        if(role->direction!=1) role->direction = 1;
+        else role->Velocity.y += vel;//vel for velocity
     }
-    else if (keyCode == ALLEGRO_KEY_E) {
+    if (keyCode == ALLEGRO_KEY_LEFT) {//2
         // Hotkey for MissileTurret.
-        UIBtnClicked(2);
+        if(role->direction!=2) role->direction = 2;
+        else role->Velocity.x -= vel;
     }
-    else if (keyCode == ALLEGRO_KEY_R) {
+    if (keyCode == ALLEGRO_KEY_RIGHT) {//3
         // Hotkey for NewTurret.
-        UIBtnClicked(3);
+        if(role->direction!=3) role->direction = 3;
+        else role->Velocity.x += vel;
     }
     // TODO 2 (5/8): Make the R key to create the 4th turret.
-    else if (keyCode >= ALLEGRO_KEY_0 && keyCode <= ALLEGRO_KEY_9) {
+    if (keyCode >= ALLEGRO_KEY_0 && keyCode <= ALLEGRO_KEY_9) {
         // Hotkey for Speed up.
         SpeedMult = keyCode - ALLEGRO_KEY_0;
     }

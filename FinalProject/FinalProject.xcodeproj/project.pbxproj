@@ -13,6 +13,7 @@
 		F75021C222BE5680008704B3 /* Room1Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021C122BE5680008704B3 /* Room1Scene.cpp */; };
 		F75021C522BE6FE0008704B3 /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021C322BE6FE0008704B3 /* Box.cpp */; };
 		F75021C822BE8E65008704B3 /* HowScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021C622BE8E65008704B3 /* HowScene.cpp */; };
+		F75021CB22BE9967008704B3 /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021C922BE9967008704B3 /* Door.cpp */; };
 		F7557BFC229973B500A44142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7557BFB229973B500A44142 /* Assets.xcassets */; };
 		F7557BFF229973B500A44142 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7557BFD229973B500A44142 /* MainMenu.xib */; };
 		F7557C1A2299752900A44142 /* liballegro_video.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C0D2299752800A44142 /* liballegro_video.5.2.4.dylib */; };
@@ -71,6 +72,8 @@
 		F75021C422BE6FE0008704B3 /* Box.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Box.hpp; sourceTree = "<group>"; };
 		F75021C622BE8E65008704B3 /* HowScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HowScene.cpp; sourceTree = "<group>"; };
 		F75021C722BE8E65008704B3 /* HowScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HowScene.hpp; sourceTree = "<group>"; };
+		F75021C922BE9967008704B3 /* Door.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Door.cpp; sourceTree = "<group>"; };
+		F75021CA22BE9967008704B3 /* Door.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Door.hpp; sourceTree = "<group>"; };
 		F7557BF5229973B400A44142 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7557BFB229973B500A44142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7557BFE229973B500A44142 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				F75021B522BCFC24008704B3 /* Player.hpp */,
 				F75021C322BE6FE0008704B3 /* Box.cpp */,
 				F75021C422BE6FE0008704B3 /* Box.hpp */,
+				F75021C922BE9967008704B3 /* Door.cpp */,
+				F75021CA22BE9967008704B3 /* Door.hpp */,
 				F75021C122BE5680008704B3 /* Room1Scene.cpp */,
 				F75021C022BE5680008704B3 /* Room1Scene.hpp */,
 				F75021BC22BE4742008704B3 /* StartScene.cpp */,
@@ -380,6 +385,7 @@
 				F78833CB22A3D5B70066B270 /* Image.cpp in Sources */,
 				F788340222A3D5CD0066B270 /* TurretButton.cpp in Sources */,
 				F78833DA22A3D5B70066B270 /* LOG.cpp in Sources */,
+				F75021CB22BE9967008704B3 /* Door.cpp in Sources */,
 				F78833D322A3D5B70066B270 /* ExplosionEffect.cpp in Sources */,
 				F78833CC22A3D5B70066B270 /* Collider.cpp in Sources */,
 				F78833C322A3D5B70066B270 /* Label.cpp in Sources */,

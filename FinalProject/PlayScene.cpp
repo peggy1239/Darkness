@@ -28,6 +28,7 @@ Engine::Point PlayScene::GetClientSize() {
 void PlayScene::Initialize() {
     // TODO 5 (1/2): There's a bug in this file, which crashes the game when you win. Try to find it.
     // TODO 5 (2/2): There's a cheat code in this file. Try to find it.
+    
     mapState.clear();
     keyStrokes.clear();
     ticks = 0;

@@ -6,16 +6,27 @@
 #include "AudioHelper.hpp"
 #include "LOG.hpp"
 #include "Box.hpp"
+#include "Door.hpp"
+
+
 
 void Room1Scene::Initialize() {
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
     int halfW = w / 2;
     int halfH = h / 2;
-    role = new Player(gender,50,200,40,40);
+    role = new Player(gender,50,halfH-75,40,40);
     box = new Box(0,halfW-64,410,128,128);
+    guider = new Box(gender+4,0,300,320,400);
+    door = new Door();
+    key = false;
+    sub=0;
     background = al_load_bitmap("resources/images/play/playscene.png");
-
+    AddNewObject(new Engine::Label("Room 1", "lunchds.ttf", 36, 100, 50 , 255, 255, 255, 255, 0.5, 0.5));
+    if(gender==1)
+        AddNewObject(new Engine::Label("Hi I AM AMY.", "lunchds.ttf", 30, 400, 550 , 255, 255, 255, 255, 0.5, 0.5));
+    else
+        AddNewObject(new Engine::Label("Hi I AM JACK.", "lunchds.ttf", 30, 400, 550 , 255, 255, 255, 255, 0.5, 0.5));
     bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
     al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
     al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
@@ -27,6 +38,10 @@ void Room1Scene::Initialize() {
 void Room1Scene::Update(float deltaTime){
     //box->Update(deltaTime);
     role->Update(deltaTime);
+    if(door->opendoor)
+        Engine::GameEngine::GetInstance().ChangeScene("win");
+    //if(door->state==9)door->Update(deltaTime);
+    
 }
 void Room1Scene::BackOnClick(int stage) {
     Engine::GameEngine::GetInstance().ChangeScene("stage-select");
@@ -37,9 +52,20 @@ void Room1Scene::Draw() const{
     al_draw_bitmap(background, 0, 0, 0);
     box->Draw();
     role->Draw();
+    door->Draw();
+    guider->Draw();
     Group::Draw();
     
 }
+
+bool Room1Scene::InfrontDoor()
+{
+    if (role->Position.x == 680 && (role->Position.y <=260 && role->Position.y >=210) && role->directions == 3)
+        return true;
+    else
+        return false;
+}
+
 bool Room1Scene::BoxAndPlayerIsNear(){
     
     if(box->directions==0 || box->directions==1){
@@ -101,6 +127,24 @@ void Room1Scene::OnKeyDown(int keyCode){
     }
     if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear()){
         box->state = 1;
+        key = true;
+        std::cout << "KEY: " << key << std::endl;
+    }
+    if(keyCode==ALLEGRO_KEY_SPACE && sub <1){
+        sub++;
+        
+    }
+    
+    if(keyCode==ALLEGRO_KEY_SPACE && key==true)
+    {
+        std::cout << "Infront: " << InfrontDoor() << std::endl;
+        if (InfrontDoor())
+        {
+            //door->opendoor();
+            door->state = 9;
+            
+            std::cout << "DOOR: " << door -> state << std::endl;
+        }
     }
     
 }

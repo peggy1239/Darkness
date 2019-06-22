@@ -24,6 +24,16 @@ Box::Box(int directions,float x,float y,float w,float h){
             picture[0] = al_load_bitmap("resources/images/play/box30.png");
             picture[1] = al_load_bitmap("resources/images/play/box31.png");
         }
+        else if(directions==4){
+            
+            picture[0] = al_load_bitmap("resources/images/play/boy.png");
+            
+        }
+        else if(directions==5){
+            
+            picture[0] = al_load_bitmap("resources/images/play/girls.png");
+        }
+    
     
     
     

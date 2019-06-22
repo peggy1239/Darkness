@@ -14,6 +14,7 @@
 #include "PlayerSelectScene.hpp"
 #include "Player.hpp"
 #include "Box.hpp"
+#include "Door.hpp"
 class Player;
 
 class Room1Scene final : public Engine::IScene {
@@ -21,8 +22,12 @@ private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
 public:
     Player* role;
+    Box* guider;
     ALLEGRO_BITMAP* background;
     Box* box;
+    Door* door;
+    int sub;
+    bool key = false; //whether have key or not
     bool keyState[4]={false};
     int gender;
     void Update(float deltaTime) override;
@@ -33,5 +38,6 @@ public:
     void OnKeyDown(int keyCode) override;
     void OnKeyUp(int keyCode) override;
     bool BoxAndPlayerIsNear();
+    bool InfrontDoor();
 };
 #endif /* Room1Scene_hpp */

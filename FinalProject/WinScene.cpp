@@ -19,13 +19,13 @@ void WinScene::Initialize() {
     btn->SetOnClickCallback(std::bind(&WinScene::BackOnClick, this, 2));
     AddNewControlObject(btn);
     
-	AudioHelper::PlayAudio("win.wav");
+	AudioHelper::PlayAudio("win.ogg");
 }
 void WinScene::Update(float deltaTime) {
 	
 }
 void WinScene::BackOnClick(int stage) {
 	// Change to select scene.
-    if(stage==1)Engine::GameEngine::GetInstance().ChangeScene("start");
+    if(stage==1)Engine::GameEngine::GetInstance().ChangeScene("room1");
     else Engine::GameEngine::GetInstance().ChangeScene("start");
 }

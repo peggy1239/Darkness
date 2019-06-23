@@ -10,6 +10,7 @@
 #include "Subtitle.hpp"
 #include <iostream>
 #include "Key.hpp"
+#include "Trap.hpp"
 
 
 
@@ -27,7 +28,8 @@ void Room1Scene::Initialize() {
         heart[i] = new Box(6,w-60-i*55,10,50,50);
     }
     key = false;
-    sub=0;
+    trap = new Trap(halfW+100,100,96,96);
+    //sub=0;
     lives = 5;
     subtitling = true;
     
@@ -43,6 +45,22 @@ void Room1Scene::Initialize() {
     
     
 }
+bool Room1Scene::TrapTrap(){
+    
+    int Rx = role->Position.x ;
+    int Ry = role->Position.y;
+    int x1 = trap->Position.x - role->Size.x - 50;
+    int x2 = trap->Position.x + trap->Size.x;
+    int y1 = trap->Position.y - role->Size.y;
+    int y2 = trap->Position.y + trap->Size.y-20;
+    
+    if(Rx>x1&&Rx<x2&Ry>y1&&Ry<y2)
+        return true;
+    else
+        return false;
+    
+    return false;
+}
 void Room1Scene::Update(float deltaTime){
     //box->Update(deltaTime);
     role->Update(deltaTime);
@@ -51,6 +69,20 @@ void Room1Scene::Update(float deltaTime){
     scene->lives = lives;
     if(door->opendoor)
         Engine::GameEngine::GetInstance().ChangeScene("room2");
+    if(TrapTrap()){
+        
+        role->Position.x = 50;
+        role->Position.y = 325;
+        lives--;
+        if(lives==0){
+            Engine::GameEngine::GetInstance().ChangeScene("lose");
+        }
+    }
+    
+    
+    
+    
+    
     
     
 }
@@ -65,7 +97,9 @@ void Room1Scene::Draw() const{
     role->Draw();
     door->Draw();
     KEY->Draw();
+    trap->Draw();
     subtitle -> Draw();
+    
     for (int i=0; i<lives; i++) {
         heart[i]->Draw();
     }

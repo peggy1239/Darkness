@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7003DF122BFA4AE002CC9CE /* Trap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7003DEF22BFA4AE002CC9CE /* Trap.cpp */; };
 		F75021B622BCFC24008704B3 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021B422BCFC24008704B3 /* Player.cpp */; };
 		F75021BE22BE4742008704B3 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021BB22BE4742008704B3 /* WinScene.cpp */; };
 		F75021BF22BE4742008704B3 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F75021BC22BE4742008704B3 /* StartScene.cpp */; };
@@ -63,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7003DEF22BFA4AE002CC9CE /* Trap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Trap.cpp; sourceTree = "<group>"; };
+		F7003DF022BFA4AE002CC9CE /* Trap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Trap.hpp; sourceTree = "<group>"; };
 		F75021B422BCFC24008704B3 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		F75021B522BCFC24008704B3 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		F75021BA22BE4741008704B3 /* StartScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StartScene.hpp; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				F75021CD22BF52B3008704B3 /* Key.hpp */,
 				F75021C922BE9967008704B3 /* Door.cpp */,
 				F75021CA22BE9967008704B3 /* Door.hpp */,
+				F7003DEF22BFA4AE002CC9CE /* Trap.cpp */,
+				F7003DF022BFA4AE002CC9CE /* Trap.hpp */,
 				F75021C122BE5680008704B3 /* Room1Scene.cpp */,
 				F75021C022BE5680008704B3 /* Room1Scene.hpp */,
 				F75021CF22BF5A5E008704B3 /* Room2Scene.cpp */,
@@ -403,6 +408,7 @@
 				F78833CB22A3D5B70066B270 /* Image.cpp in Sources */,
 				F788340222A3D5CD0066B270 /* TurretButton.cpp in Sources */,
 				F78833DA22A3D5B70066B270 /* LOG.cpp in Sources */,
+				F7003DF122BFA4AE002CC9CE /* Trap.cpp in Sources */,
 				F75021CB22BE9967008704B3 /* Door.cpp in Sources */,
 				F78833D322A3D5B70066B270 /* ExplosionEffect.cpp in Sources */,
 				F78833CC22A3D5B70066B270 /* Collider.cpp in Sources */,

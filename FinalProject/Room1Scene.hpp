@@ -17,10 +17,12 @@
 #include "Key.hpp"
 #include "Door.hpp"
 #include "Subtitle.hpp"
+#include "Trap.hpp"
 class Player;
 class Key;
 class Box;
 class Door;
+class Trap;
 
 class Room1Scene final : public Engine::IScene {
 private:
@@ -32,6 +34,7 @@ public:
     Key* KEY;
     Subtitle* subtitle;
     Box *box,*heart[5];
+    Trap* trap;
     int sub;
     bool subtitling;
     bool key = false; //whether have key or not
@@ -48,5 +51,6 @@ public:
     bool BoxAndPlayerIsNear();
     bool InfrontDoor();
     void Terminate() override;
+    bool TrapTrap();
 };
 #endif /* Room1Scene_hpp */

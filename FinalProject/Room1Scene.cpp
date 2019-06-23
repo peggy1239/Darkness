@@ -24,6 +24,8 @@ void Room1Scene::Initialize() {
     KEY = new Key(w-100,h-80,50,50);
     key = false;
     sub=0;
+    lives = 5;
+    
     background = al_load_bitmap("resources/images/play/playscene.png");
     AddNewObject(new Engine::Label("Room 1", "lunchds.ttf", 36, 100, 50 , 255, 255, 255, 255, 0.5, 0.5));
     if(gender==1)
@@ -148,7 +150,7 @@ void Room1Scene::OnKeyDown(int keyCode){
         {
             //door->opendoor();
             door->state = 9;
-            
+            role->opendoor = true;
             std::cout << "DOOR: " << door -> state << std::endl;
         }
     }

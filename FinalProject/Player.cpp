@@ -24,34 +24,27 @@ Player:: Player(int gender,float x,float y,float w,float h){
     Size.y = h;
     directions = 3;
     this->gender=gender;
+    opendoor = false;
     Velocity.x = Velocity.y = 5;//velocity setting
     
     
 }
 void Player:: Update(float deltaTime){
+    if(!opendoor){
+        if(keyState[0]){
+            Position.y -= Velocity.y;
+        }
+        if(keyState[1]){
+            Position.y += Velocity.y;
+        }
+        if(keyState[2]){
+            Position.x -= Velocity.x;
+        }
+        if(keyState[3]){
+            Position.x += Velocity.x;
+        }
+    }
     
-    /*
-    for (int a=0; a<4; a++)
-    {
-        std::cout << keyState[a] << " ";
-    }
-     */
-    //std::cout << std::endl;
-    //std::cout << "X: " << Position.x << "Y: " << Position.y;
-    //std::cout << std::endl;
-    
-    if(keyState[0]){
-        Position.y -= Velocity.y;
-    }
-    if(keyState[1]){
-        Position.y += Velocity.y;
-    }
-    if(keyState[2]){
-        Position.x -= Velocity.x;
-    }
-    if(keyState[3]){
-        Position.x += Velocity.x;
-    }
     
     if (Position.x < 0)
         Position.x = 0;

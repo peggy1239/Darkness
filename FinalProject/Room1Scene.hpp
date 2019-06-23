@@ -32,6 +32,7 @@ public:
     bool key = false; //whether have key or not
     bool keyState[4]={false};
     int gender;
+    int lives;
     void Update(float deltaTime) override;
     explicit Room1Scene() = default;
     void Initialize() override;

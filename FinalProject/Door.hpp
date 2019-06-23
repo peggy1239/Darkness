@@ -32,7 +32,8 @@ public:
     Door();
     void Update(float deltatime);
     //void Update(float deltaTime) ;
-    void Draw() ;
+    void Draw();
+    ~Door();
 };
 
 #endif /* Door_hpp */

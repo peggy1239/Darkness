@@ -53,3 +53,15 @@ void Box::Draw()const{
     
 }
 
+Box::~Box(){
+    
+    al_destroy_bitmap(picture[0]);
+    /*
+    for(int i=0;i<2;i++){
+        if(picture[i]!=NULL){
+            al_destroy_bitmap(picture[i]);
+        }
+    }
+     */
+    
+}

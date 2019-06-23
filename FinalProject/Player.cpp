@@ -73,3 +73,10 @@ void Player:: Draw()const {
     
     
 }
+Player::~Player(){
+    
+    for (int i=0; i<4; i++) {
+        al_destroy_bitmap(pic[i]);
+    }
+    
+}

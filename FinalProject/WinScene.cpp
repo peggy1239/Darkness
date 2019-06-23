@@ -1,4 +1,5 @@
 #include "WinScene.hpp"
+#include "Room1Scene.hpp"
 #include "Label.hpp"
 #include "AudioHelper.hpp"
 #include "PlayScene.hpp"
@@ -26,6 +27,11 @@ void WinScene::Update(float deltaTime) {
 }
 void WinScene::BackOnClick(int stage) {
 	// Change to select scene.
-    if(stage==1)Engine::GameEngine::GetInstance().ChangeScene("room1");
-    else Engine::GameEngine::GetInstance().ChangeScene("start");
+    Room1Scene* scene = dynamic_cast<Room1Scene*>(Engine::GameEngine::GetInstance().GetScene("room1"));
+    if(stage==1){
+        scene->key = false;
+        Engine::GameEngine::GetInstance().ChangeScene("room1");
+    }
+    else
+        Engine::GameEngine::GetInstance().ChangeScene("start");
 }

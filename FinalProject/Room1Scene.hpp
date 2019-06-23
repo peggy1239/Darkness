@@ -39,5 +39,6 @@ public:
     void OnKeyUp(int keyCode) override;
     bool BoxAndPlayerIsNear();
     bool InfrontDoor();
+    void Terminate() override;
 };
 #endif /* Room1Scene_hpp */

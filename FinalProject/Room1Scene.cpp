@@ -7,6 +7,7 @@
 #include "LOG.hpp"
 #include "Box.hpp"
 #include "Door.hpp"
+#include <iostream>
 
 
 
@@ -162,4 +163,19 @@ void Room1Scene::OnKeyUp(int keyCode){
     if(keyCode==ALLEGRO_KEY_RIGHT){
         role->keyState[3] = false;
     }
+}
+void Room1Scene::Terminate(){
+    
+    std::cout<< "TERMINATE IN ROOM!\n";
+    delete role;
+    std::cout<< "delete role\n";
+    delete box;
+    std::cout<< "delete box\n";
+    delete guider;
+    std::cout<< "delete guider\n";
+    delete door;
+    std::cout<< "delete door\n";
+    al_destroy_bitmap(background);
+    Clear();
+    std::cout<< "TERMINATE SUCCEED!\n";
 }

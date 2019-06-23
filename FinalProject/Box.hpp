@@ -22,6 +22,7 @@ public:
     Box(int directions,float x,float y,float w,float h);
     //void Update(float deltaTime) ;
     void Draw()const ;
+    ~Box();
 };
 
 #endif /* Box_hpp */

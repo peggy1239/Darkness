@@ -23,6 +23,7 @@ public:
     bool keyState[4] = {false};
     std::vector<ALLEGRO_BITMAP*> pic = {NULL};//0 for male
     Player(int gender,float x,float y,float w,float h);
+    ~Player();
     void Update(float deltaTime) ;
     void Draw()const ;
 };

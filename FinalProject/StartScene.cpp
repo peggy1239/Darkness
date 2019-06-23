@@ -51,9 +51,17 @@ void StartScene::BackOnClick(int stage) {
     }
     else if(stage==2){
         //int value = 0;
-        al_set_sample_instance_gain(bgmInstance, 0);
-        AudioHelper::BGMVolume = 0;
-        IsMute = 0;
+        if(IsMute==1){
+            al_set_sample_instance_gain(bgmInstance, 0);
+            AudioHelper::BGMVolume = 0;
+            IsMute = 0;
+        }
+        else{
+            al_set_sample_instance_gain(bgmInstance, 1);
+            AudioHelper::BGMVolume = 1;
+            IsMute = 1;
+        }
+            
     }
     
     

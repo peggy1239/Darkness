@@ -35,7 +35,7 @@ Box::Box(int directions,float x,float y,float w,float h){
         }
         else if(directions==6){
             
-            picture[0] = al_load_bitmap("resources/images/play/key.png");
+            picture[0] = al_load_bitmap("resources/images/play/lives.png");
         }
         
     
@@ -54,6 +54,11 @@ void Box::Draw()const{
     
     
     al_draw_bitmap(picture[state], Position.x, Position.y, 0);
+    if(directions==6){
+       
+        al_draw_bitmap(picture[0], Position.x, Position.y, 0);
+        
+    }
     
     
 }

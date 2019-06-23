@@ -22,6 +22,10 @@ void Room1Scene::Initialize() {
     guider = new Box(gender+4,0,300,320,400);
     door = new Door();
     KEY = new Key(w-100,h-80,50,50);
+    for (int i=0; i<5; i++) {
+         heart[i] = new Box(6,w-60-i*55,10,50,50);
+    }
+   
     key = false;
     sub=0;
     lives = 5;
@@ -54,12 +58,17 @@ void Room1Scene::BackOnClick(int stage) {
 
 void Room1Scene::Draw() const{
     
+    
     al_draw_bitmap(background, 0, 0, 0);
+    
     box->Draw();
     role->Draw();
     door->Draw();
     guider->Draw();
     KEY->Draw();
+    for (int i=0; i<lives; i++) {
+        heart[i]->Draw();
+    }
     Group::Draw();
     
     
@@ -177,6 +186,7 @@ void Room1Scene::Terminate(){
     delete role;
     std::cout<< "delete role\n";
     delete box;
+    //delete heart[];
     std::cout<< "delete box\n";
     delete guider;
     std::cout<< "delete guider\n";

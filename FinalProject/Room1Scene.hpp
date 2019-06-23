@@ -23,11 +23,10 @@ private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
 public:
     Player* role;
-    Box* guider;
     ALLEGRO_BITMAP* background;
-    Box* box;
     Door* door;
     Key* KEY;
+    Box *box,*guider,*heart[5];
     int sub;
     bool key = false; //whether have key or not
     bool keyState[4]={false};

@@ -18,6 +18,7 @@ public:
     Engine::Point Size;
     int directions;//面向 0 1 2 3
     int state = 0;//false for close
+    int lives;
     std::vector<ALLEGRO_BITMAP*> picture = {NULL};
     Box(int directions,float x,float y,float w,float h);
     //void Update(float deltaTime) ;

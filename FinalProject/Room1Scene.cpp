@@ -157,7 +157,7 @@ void Room1Scene::OnKeyDown(int keyCode){
         }
     }
     
-    if(keyCode==ALLEGRO_KEY_SPACE)
+    if(keyCode==ALLEGRO_KEY_SPACE && key )
     {
         if (InfrontDoor())
         {

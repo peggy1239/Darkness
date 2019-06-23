@@ -17,7 +17,9 @@
 #include "Key.hpp"
 #include "Door.hpp"
 class Player;
-
+class Key;
+class Box;
+class Door;
 class Room1Scene final : public Engine::IScene {
 private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;

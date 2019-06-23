@@ -25,7 +25,7 @@ Player:: Player(int gender,float x,float y,float w,float h){
     directions = 3;
     this->gender=gender;
     opendoor = false;
-    Velocity.x = Velocity.y = 5;//velocity setting
+    Velocity.x = Velocity.y = 1;//velocity setting
     
     
 }
@@ -54,6 +54,31 @@ void Player:: Update(float deltaTime){
         Position.y = 100;
     if (Position.y > 380)
         Position.y = 380;
+    
+    for(int i=0;i<3;i++){
+        if(blockarea[i][0]!=0){
+            if(Position.x > blockarea[i][0] && Position.x < blockarea[i][1]){
+                if(Position.y > blockarea[i][2]-Size.y && Position.y < blockarea[i][2]){
+                    Position.y = blockarea[i][2]-Size.y;
+                }
+                if(Position.y < blockarea[i][3]+Size.y && Position.y > blockarea[i][3]){
+                    Position.y = blockarea[i][3]+Size.y;
+                }
+            }
+            if(Position.y > blockarea[i][2] && Position.y < blockarea[i][3]){
+                if(Position.x > blockarea[i][0]-Size.x && Position.x < blockarea[i][0]){
+                    Position.x = blockarea[i][0]-Size.x;
+                }
+                if(Position.x < blockarea[i][1]+Size.x && Position.x > blockarea[i][1]){
+                    Position.x = blockarea[i][1]+Size.x;
+                }
+            }
+        }
+        
+    }
+    
+    
+    
 }
 
 
@@ -71,5 +96,13 @@ Player::~Player(){
     for (int i=0; i<4; i++) {
         al_destroy_bitmap(pic[i]);
     }
+    
+}
+void Player:: Block(int num,int x1,int x2,int y1,int y2){
+    
+    blockarea[num][0] = x1;
+    blockarea[num][1] = x2;
+    blockarea[num][2] = y1;
+    blockarea[num][3] = y2;
     
 }

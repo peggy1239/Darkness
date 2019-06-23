@@ -59,6 +59,7 @@
 		F788340222A3D5CD0066B270 /* TurretButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F78833F022A3D5CC0066B270 /* TurretButton.cpp */; };
 		F788340422A3D5CD0066B270 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F78833F422A3D5CC0066B270 /* Sprite.cpp */; };
 		F7D2ADA4229AE17900E4826E /* resources in Resources */ = {isa = PBXBuildFile; fileRef = F7D2ADA3229AE17900E4826E /* resources */; };
+		F7ECAF4822BF98ED00FFCAD1 /* Subtitle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7ECAF4722BF98ED00FFCAD1 /* Subtitle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,8 @@
 		F78833F422A3D5CC0066B270 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		F78833F622A3D5CC0066B270 /* Resources.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Resources.hpp; sourceTree = "<group>"; };
 		F7D2ADA3229AE17900E4826E /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
+		F7ECAF4622BF98EC00FFCAD1 /* Subtitle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Subtitle.hpp; sourceTree = "<group>"; };
+		F7ECAF4722BF98ED00FFCAD1 /* Subtitle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subtitle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 				F75021C022BE5680008704B3 /* Room1Scene.hpp */,
 				F75021CF22BF5A5E008704B3 /* Room2Scene.cpp */,
 				F75021D022BF5A5E008704B3 /* Room2Scene.hpp */,
+				F7ECAF4722BF98ED00FFCAD1 /* Subtitle.cpp */,
+				F7ECAF4622BF98EC00FFCAD1 /* Subtitle.hpp */,
 				F75021BC22BE4742008704B3 /* StartScene.cpp */,
 				F75021BA22BE4741008704B3 /* StartScene.hpp */,
 				F75021C622BE8E65008704B3 /* HowScene.cpp */,
@@ -379,6 +384,7 @@
 				F78833C822A3D5B70066B270 /* IScene.cpp in Sources */,
 				F78833CE22A3D5B70066B270 /* DirtyEffect.cpp in Sources */,
 				F78833CD22A3D5B70066B270 /* PlayScene.cpp in Sources */,
+				F7ECAF4822BF98ED00FFCAD1 /* Subtitle.cpp in Sources */,
 				F78833D522A3D5B70066B270 /* LoseScene.cpp in Sources */,
 				F75021CE22BF52B3008704B3 /* Key.cpp in Sources */,
 				F78833FE22A3D5CD0066B270 /* Resources.cpp in Sources */,

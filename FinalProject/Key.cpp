@@ -8,7 +8,7 @@
 
 #include "Key.hpp"
 #include <iostream>
-Key::Key(float x,float y,float w,float h){
+Key::Key(bool visible,float x,float y,float w,float h){
     Img = al_load_bitmap("resources/images/play/key.png");
     if (Img)
         std::cout << "Load Key" << std::endl;
@@ -16,9 +16,8 @@ Key::Key(float x,float y,float w,float h){
     Position.y = y;
     Size.x = w;
     Size.y = h;
-    visible = false;
+    this->visible = visible;
 }
-
 //void Update(float deltaTime) ;
 void Key::Draw()const {
     

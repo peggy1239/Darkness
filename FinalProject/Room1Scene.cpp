@@ -1,5 +1,5 @@
 #include "Room1Scene.hpp"
-#include "Room1Scene.hpp"
+#include "Room2Scene.hpp"
 #include "PlayerSelectScene.hpp"
 #include "PlayScene.hpp"
 #include "Player.hpp"
@@ -21,15 +21,15 @@ void Room1Scene::Initialize() {
     box = new Box(0,halfW-64,410,128,128);
     guider = new Box(gender+4,0,300,320,400);
     door = new Door();
-    KEY = new Key(w-100,h-80,50,50);
+    KEY = new Key(false,w-100,h-80,50,50);
     for (int i=0; i<5; i++) {
-         heart[i] = new Box(6,w-60-i*55,10,50,50);
+        heart[i] = new Box(6,w-60-i*55,10,50,50);
     }
    
     key = false;
     sub=0;
     lives = 5;
-    
+    //box->visible = guider->visible = true;
     background = al_load_bitmap("resources/images/play/playscene.png");
     AddNewObject(new Engine::Label("Room 1", "lunchds.ttf", 36, 100, 50 , 255, 255, 255, 255, 0.5, 0.5));
     if(gender==1)
@@ -47,8 +47,11 @@ void Room1Scene::Initialize() {
 void Room1Scene::Update(float deltaTime){
     //box->Update(deltaTime);
     role->Update(deltaTime);
+    Room2Scene* scene = dynamic_cast<Room2Scene*>(Engine::GameEngine::GetInstance().GetScene("room2"));
+    scene->gender = gender;
+    scene->lives = lives;
     if(door->opendoor)
-        Engine::GameEngine::GetInstance().ChangeScene("win");
+        Engine::GameEngine::GetInstance().ChangeScene("room2");
     //if(door->state==9)door->Update(deltaTime);
     
 }
@@ -185,7 +188,7 @@ void Room1Scene::Terminate(){
     std::cout<< "TERMINATE IN ROOM!\n";
     delete role;
     std::cout<< "delete role\n";
-    delete box;
+    delete box; 
     //delete heart[];
     std::cout<< "delete box\n";
     delete guider;

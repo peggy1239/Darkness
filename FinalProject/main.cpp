@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 	Engine::GameEngine& game = Engine::GameEngine::GetInstance();
 	game.AddNewScene("player-select", new PlayerSelectScene());
 	game.AddNewScene("room1", new Room1Scene());
-    //game.AddNewScene("room2", new Room2Scene());
+    game.AddNewScene("room2", new Room2Scene());
 	game.AddNewScene("lose", new LoseScene());
 	game.AddNewScene("win", new WinScene());
     game.AddNewScene("how", new HowScene());

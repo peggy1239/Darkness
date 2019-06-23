@@ -37,11 +37,14 @@ Box::Box(int directions,float x,float y,float w,float h){
             
             picture[0] = al_load_bitmap("resources/images/play/lives.png");
         }
+        else if(directions==7){
+            picture[0] = al_load_bitmap("resources/images/play/oldman.png");
+        }
         
     
     
-    
-    
+    this->directions = directions;
+    visible = true;
     Position.x = x;
     Position.y = y;
     Size.x = w;
@@ -52,14 +55,14 @@ Box::Box(int directions,float x,float y,float w,float h){
 
 void Box::Draw()const{
     
-    
-    al_draw_bitmap(picture[state], Position.x, Position.y, 0);
-    if(directions==6){
-       
-        al_draw_bitmap(picture[0], Position.x, Position.y, 0);
-        
+    if(visible){
+        al_draw_bitmap(picture[state], Position.x, Position.y, 0);
+        if(directions==6){
+           
+            al_draw_bitmap(picture[0], Position.x, Position.y, 0);
+            
+        }
     }
-    
     
 }
 

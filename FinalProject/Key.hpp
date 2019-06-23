@@ -27,7 +27,8 @@ public:
     Engine::Point Size;
     bool visible = false;
     ALLEGRO_BITMAP* Img = NULL;
-    Key(float x,float y,float w,float h);
+    Key(bool visible,float x,float y,float w,float h);
+    //void OldManTalk(int state);
     //void Update(float deltaTime) ;
     void Draw()const ;
     ~Key();

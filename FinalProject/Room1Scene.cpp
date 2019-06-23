@@ -8,6 +8,7 @@
 #include "Box.hpp"
 #include "Door.hpp"
 #include <iostream>
+#include "Key.hpp"
 
 
 
@@ -20,6 +21,7 @@ void Room1Scene::Initialize() {
     box = new Box(0,halfW-64,410,128,128);
     guider = new Box(gender+4,0,300,320,400);
     door = new Door();
+    KEY = new Key(w-100,h-80,50,50);
     key = false;
     sub=0;
     background = al_load_bitmap("resources/images/play/playscene.png");
@@ -55,7 +57,9 @@ void Room1Scene::Draw() const{
     role->Draw();
     door->Draw();
     guider->Draw();
+    KEY->Draw();
     Group::Draw();
+    
     
 }
 
@@ -129,6 +133,7 @@ void Room1Scene::OnKeyDown(int keyCode){
     if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear()){
         box->state = 1;
         key = true;
+        KEY->visible = true;
         std::cout << "KEY: " << key << std::endl;
     }
     if(keyCode==ALLEGRO_KEY_SPACE && sub <1){

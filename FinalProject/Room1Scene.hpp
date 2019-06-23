@@ -14,6 +14,7 @@
 #include "PlayerSelectScene.hpp"
 #include "Player.hpp"
 #include "Box.hpp"
+#include "Key.hpp"
 #include "Door.hpp"
 class Player;
 
@@ -26,6 +27,7 @@ public:
     ALLEGRO_BITMAP* background;
     Box* box;
     Door* door;
+    Key* KEY;
     int sub;
     bool key = false; //whether have key or not
     bool keyState[4]={false};

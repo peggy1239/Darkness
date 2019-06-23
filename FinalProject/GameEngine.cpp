@@ -165,6 +165,7 @@ namespace Engine {
 		al_destroy_timer(update_timer);
 		al_destroy_event_queue(event_queue);
 		al_destroy_display(display);
+        
 		// Free all scenes.
 		for (const auto &pair : scenes)
 			delete pair.second;

@@ -33,6 +33,11 @@ Box::Box(int directions,float x,float y,float w,float h){
             
             picture[0] = al_load_bitmap("resources/images/play/girls.png");
         }
+        else if(directions==6){
+            
+            picture[0] = al_load_bitmap("resources/images/play/key.png");
+        }
+        
     
     
     

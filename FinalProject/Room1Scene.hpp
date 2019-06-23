@@ -1,11 +1,3 @@
-//
-//  Room1Scene.hpp
-//  FinalProject
-//
-//  Created by lo peichieh on 2019/6/2.
-//  Copyright © 2019 lo peichieh. All rights reserved.
-//
-
 #ifndef Room1Scene_hpp
 #define Room1Scene_hpp
 #include "IScene.hpp"
@@ -23,7 +15,6 @@ class Key;
 class Box;
 class Door;
 class Trap;
-
 class Room1Scene final : public Engine::IScene {
 private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
@@ -38,7 +29,7 @@ public:
     int IsMute;
     int sub;
     bool subtitling;
-    bool key = false; //whether have key or not
+    int key = 0; //whether have key or not
     bool keyState[4]={false};
     int gender;
     int lives;

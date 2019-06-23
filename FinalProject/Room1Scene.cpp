@@ -1,6 +1,5 @@
 #include "Room1Scene.hpp"
 #include "Room2Scene.hpp"
-#include "LoseScene.hpp"
 #include "PlayerSelectScene.hpp"
 #include "PlayScene.hpp"
 #include "Player.hpp"
@@ -11,8 +10,8 @@
 #include "Subtitle.hpp"
 #include <iostream>
 #include "Key.hpp"
+#include "LoseScene.hpp"
 #include "Trap.hpp"
-
 
 
 void Room1Scene::Initialize() {
@@ -28,9 +27,9 @@ void Room1Scene::Initialize() {
     for (int i=0; i<5; i++) {
         heart[i] = new Box(6,w-60-i*55,10,50,50);
     }
-    key = false;
     trap = new Trap(halfW+100,100,96,96);
-    //sub=0;
+    subtitle -> visible = true;
+    key = 0;
     lives = 5;
     subtitling = true;
     
@@ -65,8 +64,6 @@ bool Room1Scene::TrapTrap(){
 void Room1Scene::Update(float deltaTime){
     //box->Update(deltaTime);
     role->Update(deltaTime);
-    
-    
     if(door->opendoor){
         Room2Scene* scene = dynamic_cast<Room2Scene*>(Engine::GameEngine::GetInstance().GetScene("room2"));
         scene->gender = gender;
@@ -86,11 +83,6 @@ void Room1Scene::Update(float deltaTime){
     }
     
     
-    
-    
-    
-    
-    
 }
 void Room1Scene::BackOnClick(int stage) {
     Engine::GameEngine::GetInstance().ChangeScene("stage-select");
@@ -105,7 +97,6 @@ void Room1Scene::Draw() const{
     KEY->Draw();
     trap->Draw();
     subtitle -> Draw();
-    
     for (int i=0; i<lives; i++) {
         heart[i]->Draw();
     }
@@ -181,30 +172,50 @@ void Room1Scene::OnKeyDown(int keyCode){
         }
     }
     
+    if(keyCode==ALLEGRO_KEY_SPACE)
+        std::cout << "subtitle " << subtitle -> state << std::endl;
+    
     if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear()){
         box->state = 1;
-        key = true;
+        key = 1;
         KEY->visible = true;
     }
     
-    if(keyCode==ALLEGRO_KEY_SPACE && subtitling == true)
+    if (keyCode==ALLEGRO_KEY_SPACE)
     {
-        std::cout << "subtitle" << std::endl;
-        subtitle -> state ++;
-        if (subtitle -> state == 2)
+        if (subtitling == true && !InfrontDoor())
         {
-            subtitling = false;
+            subtitle -> state ++;
+            if (subtitle -> state == 2)
+            {
+                subtitling = false;
+                subtitle -> visible = false;
+                subtitle -> state = 3;
+            }
         }
     }
     
-    if(keyCode==ALLEGRO_KEY_SPACE && key )
+    if (keyCode==ALLEGRO_KEY_SPACE && subtitle -> state == 2)
     {
-        if (InfrontDoor())
+        subtitling = false;
+        subtitle -> visible = false;
+        subtitle -> state = 3;
+    }
+    
+    
+    else if(keyCode==ALLEGRO_KEY_SPACE && InfrontDoor())
+    {
+        if (key==1)
         {
-            //door->opendoor();
             door->state = 9;
             role->opendoor = true;
             std::cout << "DOOR: " << door -> state << std::endl;
+        }
+        if (key==0)
+        {
+            subtitling = true;
+            subtitle -> visible =  true;
+            subtitle -> state = 2;
         }
     }
     

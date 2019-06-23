@@ -12,11 +12,12 @@ class PlayScene;
 class Subtitle{
 protected:
     PlayScene* getPlayScene();
-
+    
 public:
     Engine::Point Position;
     Engine::Point Size;
     int gender;
+    bool visible;
     int state = 0; //0 for 1 1 for 1 2 for none
     std::vector<ALLEGRO_BITMAP*> subpicture = {NULL};
     Subtitle(int gender, float x,float y,float w,float h);

@@ -25,7 +25,7 @@ Player:: Player(int gender,float x,float y,float w,float h){
     directions = 3;
     this->gender=gender;
     opendoor = false;
-    Velocity.x = Velocity.y = 1;//velocity setting
+    Velocity.x = Velocity.y = 5;//velocity setting
     
     
 }

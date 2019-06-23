@@ -8,7 +8,7 @@ void LoseScene::Initialize() {
 	int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
 	int halfW = w / 2;
 	int halfH = h / 2;
-	AddNewObject(new Engine::Label("YOU DIE", "Gore.ttf", 80, halfW-100, halfH / 2, 255, 0, 0, 255, 0.5, 0.5));
+	//AddNewObject(new Engine::Label("YOU DIE", "Gore.ttf", 80, halfW-100, halfH / 2, 255, 0, 0, 255, 0.5, 0.5));
 	Engine::ImageButton* btn;
 	btn = new Engine::ImageButton("lose/again1.png", "lose/again2.png", halfW - 300, halfH * 3 / 2 -100, 280, 120);//AGAIN
 	btn->SetOnClickCallback(std::bind(&LoseScene::BackOnClick, this, 1));
@@ -30,4 +30,10 @@ void LoseScene::BackOnClick(int stage) {
         Engine::GameEngine::GetInstance().ChangeScene("player-select");
     else
         Engine::GameEngine::GetInstance().ChangeScene("start");
+}
+void LoseScene::Draw() const{
+    ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/lose/losescene.png");
+    al_draw_bitmap(StartImg, 0, 0, 0);
+    Group::Draw();
+    
 }

@@ -16,10 +16,12 @@
 #include "Box.hpp"
 #include "Key.hpp"
 #include "Door.hpp"
+#include "Subtitle.hpp"
 class Player;
 class Key;
 class Box;
 class Door;
+
 class Room1Scene final : public Engine::IScene {
 private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
@@ -28,8 +30,10 @@ public:
     ALLEGRO_BITMAP* background;
     Door* door;
     Key* KEY;
-    Box *box,*guider,*heart[5];
+    Subtitle* subtitle;
+    Box *box,*heart[5];
     int sub;
+    bool subtitling;
     bool key = false; //whether have key or not
     bool keyState[4]={false};
     int gender;

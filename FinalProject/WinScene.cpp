@@ -10,7 +10,7 @@ void WinScene::Initialize() {
 	int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
 	int halfW = w / 2;
 	int halfH = h / 2;
-	AddNewObject(new Engine::Label("YOU ESCAPED!", "Gore.ttf", 48, halfW, halfH / 2, 255, 255, 255, 255, 0.5, 0.5));
+	//AddNewObject(new Engine::Label("YOU ESCAPED!", "Gore.ttf", 48, halfW, halfH / 2, 255, 255, 255, 255, 0.5, 0.5));
     Engine::ImageButton* btn;
     btn = new Engine::ImageButton("lose/again1.png", "lose/again2.png", halfW - 300, halfH * 3 / 2 -100, 280, 120);//AGAIN
     btn->SetOnClickCallback(std::bind(&WinScene::BackOnClick, this, 1));
@@ -34,4 +34,10 @@ void WinScene::BackOnClick(int stage) {
     }
     else
         Engine::GameEngine::GetInstance().ChangeScene("start");
+}
+void WinScene::Draw() const{
+    ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/win/winscene.png");
+    al_draw_bitmap(StartImg, 0, 0, 0);
+    Group::Draw();
+    
 }

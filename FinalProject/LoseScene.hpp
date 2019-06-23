@@ -9,6 +9,7 @@ public:
 	explicit LoseScene() = default;
 	void Initialize() override;
 	void BackOnClick(int stage);
+    void Draw()const override;
 };
 
 #endif // LOSESCENE_HPP

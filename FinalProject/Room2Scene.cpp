@@ -7,6 +7,7 @@
 #include "LOG.hpp"
 #include "Box.hpp"
 #include "Door.hpp"
+#include "Subtitle2.hpp"
 #include <iostream>
 #include "Key.hpp"
 
@@ -22,11 +23,14 @@ void Room2Scene::Initialize() {
     elderman = new Box(7,w-340,190,40,40); // 7 for oldman
     door = new Door();
     KEY = new Key(false,w-100,h-80,50,50);
+    subtitle = new Subtitle2(0,0,800,600);
     for (int i=0; i<lives; i++) {
         heart[i] = new Box(6,w-60-i*55,10,50,50);
     }
-    key = false;
-    sub=0;
+    key = 0;
+    
+    subtitling = false;
+    
     
     role->Block(0, elderman->Position.x-20,elderman->Position.x + elderman->Size.x+20,  elderman->Position.y-20, elderman->Position.y + elderman->Size.y+20);
     role->Block(1, 140, 275, 0, 270);//well1
@@ -65,9 +69,11 @@ void Room2Scene::Draw() const{
     door->Draw();
     elderman->Draw();
     KEY->Draw();
+    subtitle -> Draw();
     for (int i=0; i<lives; i++) {
         heart[i]->Draw();
     }
+    
     Group::Draw();
     
     
@@ -109,15 +115,20 @@ bool Room2Scene::BoxAndPlayerIsNear(){
 }
 bool Room2Scene::InfrontOld(){
     if(role->directions==1){
-        
-        int Rx = role->Position.x;
-        int Ry = role->Position.y;
-        int Ox = elderman->Position.x;
-        int Oy = elderman->Position.y;
-        
-        if(Rx<Ox+20 && Rx>Ox-20)
-            if(Ry>Oy-50 && Ry < Oy )
-                return true;
+        if (role->Position.y == elderman-> Position.y -60 && (role->Position.x <= elderman->Position.x && role->Position.x >= elderman->Position.x-10))
+        {
+            return true;
+        }
+        /*
+         int Rx = role->Position.x;
+         int Ry = role->Position.y;
+         int Ox = elderman->Position.x;
+         int Oy = elderman->Position.y;
+         
+         if(Rx<Ox+20 && Rx>Ox-20)
+         if(Ry>Oy-50 && Ry < Oy )
+         return true;
+         */
     }
     return false;
     
@@ -129,9 +140,8 @@ bool Room2Scene::InfrontOld(){
 void Room2Scene::OnKeyDown(int keyCode){
     
     if(keyCode==ALLEGRO_KEY_SPACE){
-        
         std::cout << role->Position.x <<"|"<<role->Position.y<<std::endl;
-        
+        std::cout << "InfrontOld: " << InfrontOld() << std::endl;
     }
     
     if(keyCode==ALLEGRO_KEY_UP){
@@ -164,27 +174,36 @@ void Room2Scene::OnKeyDown(int keyCode){
             role->directions = 3;
         }
     }
-    if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear() && box->visible){
+    if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear() && box->visible && key == 1){
         box->state = 1;
-        key = true;
+        key = 2;
         KEY->visible = true;
         std::cout << "KEY: " << key << std::endl;
     }
     
-    if(keyCode==ALLEGRO_KEY_SPACE && sub <1){
-        sub++;
-    }
     if(keyCode==ALLEGRO_KEY_SPACE && InfrontOld()){
-        
-        findOld = true;
-        
+        subtitle -> state = 0;
+        std::cout << "END GAME"<< std::endl;
+        subtitle -> visible = true;
+        subtitling = true;
     }
-    if(keyCode==ALLEGRO_KEY_SPACE && key==true)
+    
+    if (subtitling == true && keyCode==ALLEGRO_KEY_A)
+    {
+        subtitle -> visible = false;
+        key = 1;
+    }
+    if (subtitling == true && keyCode==ALLEGRO_KEY_B)
+    {
+        subtitle -> visible = false;
+        key = 0;
+    }
+    
+    if(keyCode==ALLEGRO_KEY_SPACE && key==2)
     {
         std::cout << "Infront: " << InfrontDoor() << std::endl;
         if (InfrontDoor())
         {
-            //door->opendoor();
             door->state = 9;
             role->opendoor = true;
             std::cout << "DOOR: " << door -> state << std::endl;

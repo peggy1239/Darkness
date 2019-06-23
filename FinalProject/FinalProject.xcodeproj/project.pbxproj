@@ -32,6 +32,7 @@
 		F7557C242299752900A44142 /* liballegro_image.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C172299752900A44142 /* liballegro_image.5.2.4.dylib */; };
 		F7557C252299752900A44142 /* liballegro_main.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C182299752900A44142 /* liballegro_main.5.2.4.dylib */; };
 		F7557C262299752900A44142 /* liballegro.5.2.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F7557C192299752900A44142 /* liballegro.5.2.4.dylib */; };
+		F76B4A9B22BFBDBD00AE96F1 /* Subtitle2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F76B4A9922BFBDBD00AE96F1 /* Subtitle2.cpp */; };
 		F78833C322A3D5B70066B270 /* Label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F788338D22A3D5B20066B270 /* Label.cpp */; };
 		F78833C422A3D5B70066B270 /* Allegro5Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F788339022A3D5B30066B270 /* Allegro5Exception.cpp */; };
 		F78833C522A3D5B70066B270 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F788339322A3D5B30066B270 /* Plane.cpp */; };
@@ -102,6 +103,8 @@
 		F7557C172299752900A44142 /* liballegro_image.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_image.5.2.4.dylib; path = ../../../../../../usr/local/Cellar/allegro/5.2.4.0/lib/liballegro_image.5.2.4.dylib; sourceTree = "<group>"; };
 		F7557C182299752900A44142 /* liballegro_main.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_main.5.2.4.dylib; path = ../../../../../../usr/local/Cellar/allegro/5.2.4.0/lib/liballegro_main.5.2.4.dylib; sourceTree = "<group>"; };
 		F7557C192299752900A44142 /* liballegro.5.2.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.5.2.4.dylib; path = ../../../../../../usr/local/Cellar/allegro/5.2.4.0/lib/liballegro.5.2.4.dylib; sourceTree = "<group>"; };
+		F76B4A9922BFBDBD00AE96F1 /* Subtitle2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subtitle2.cpp; sourceTree = "<group>"; };
+		F76B4A9A22BFBDBD00AE96F1 /* Subtitle2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Subtitle2.hpp; sourceTree = "<group>"; };
 		F788338C22A3D5B20066B270 /* GameEngine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameEngine.hpp; sourceTree = "<group>"; };
 		F788338D22A3D5B20066B270 /* Label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Label.cpp; sourceTree = "<group>"; };
 		F788338F22A3D5B30066B270 /* Bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				F75021BA22BE4741008704B3 /* StartScene.hpp */,
 				F75021C622BE8E65008704B3 /* HowScene.cpp */,
 				F75021C722BE8E65008704B3 /* HowScene.hpp */,
+				F76B4A9922BFBDBD00AE96F1 /* Subtitle2.cpp */,
+				F76B4A9A22BFBDBD00AE96F1 /* Subtitle2.hpp */,
 				F78833A922A3D5B40066B270 /* main.cpp */,
 				F78833F222A3D5CC0066B270 /* PlayerSelectScene.hpp */,
 				F78833E122A3D5CA0066B270 /* PlayerSelectScene.cpp */,
@@ -397,6 +402,7 @@
 				F78833D722A3D5B70066B270 /* IControl.cpp in Sources */,
 				F78833D222A3D5B70066B270 /* Group.cpp in Sources */,
 				F78833C922A3D5B70066B270 /* IObject.cpp in Sources */,
+				F76B4A9B22BFBDBD00AE96F1 /* Subtitle2.cpp in Sources */,
 				F75021C222BE5680008704B3 /* Room1Scene.cpp in Sources */,
 				F78833DE22A3D5B70066B270 /* Enemy.cpp in Sources */,
 				F78833D122A3D5B70066B270 /* main.cpp in Sources */,

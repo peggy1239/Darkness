@@ -17,6 +17,7 @@
 #include "Box.hpp"
 #include "Key.hpp"
 #include "Door.hpp"
+#include "Subtitle2.hpp"
 class Player;
 
 class Room2Scene final : public Engine::IScene {
@@ -29,8 +30,12 @@ public:
     Key* KEY;
     Box *box,*heart[5];
     Box* elderman;
-    int sub;//subtitle
-    bool key = false; //whether have key or not
+    Subtitle2* subtitle;
+    
+    bool subtitling;
+    
+    
+    int key = 0; //whether have key or not
     bool findOld = false;// if find elderman ->true;
     bool keyState[4]={false};
     int gender;

@@ -12,7 +12,7 @@ class PlayScene;
 class Subtitle2{
 protected:
     PlayScene* getPlayScene();
-
+    
 public:
     Engine::Point Position;
     Engine::Point Size;

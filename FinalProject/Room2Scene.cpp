@@ -43,10 +43,10 @@ void Room2Scene::Initialize() {
     background = al_load_bitmap("resources/images/play/room2scene.png");
     AddNewObject(new Engine::Label("Room 2", "lunchds.ttf", 36, 100, 50 , 255, 255, 255, 255, 0.5, 0.5));
     if(IsMute==1){
-        bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
-        al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
-        al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
-        al_play_sample_instance(bgmInstance);
+    bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
+    al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
+    al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
+    al_play_sample_instance(bgmInstance);
     }
     //
     
@@ -235,14 +235,27 @@ void Room2Scene::OnKeyDown(int keyCode){
         key = 0;
     }
     
-    if(keyCode==ALLEGRO_KEY_SPACE && key==2)
+    if (keyCode==ALLEGRO_KEY_SPACE && subtitle -> state == 1)
     {
-        std::cout << "Infront: " << InfrontDoor() << std::endl;
-        if (InfrontDoor())
+        subtitling = false;
+        subtitle -> visible = false;
+        subtitle -> state = 2;
+    }
+    
+    
+    else if(keyCode==ALLEGRO_KEY_SPACE && InfrontDoor())
+    {
+        if (key==2)
         {
             door->state = 9;
             role->opendoor = true;
             std::cout << "DOOR: " << door -> state << std::endl;
+        }
+        else
+        {
+            subtitling = true;
+            subtitle -> visible =  true;
+            subtitle -> state = 1;
         }
     }
     

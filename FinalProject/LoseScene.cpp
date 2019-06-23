@@ -20,7 +20,8 @@ void LoseScene::Initialize() {
     
     
 	//AddNewObject(new Engine::Label("Back", "pirulen.ttf", 48, halfW, halfH * 3 / 2, 0, 0, 0, 255, 0.5, 0.5));
-	AudioHelper::PlayAudio("lose.wav");
+    if(IsMute==1)
+        AudioHelper::PlayAudio("lose.wav");
 }
 void LoseScene::BackOnClick(int stage) {
 	// Change to select scene.

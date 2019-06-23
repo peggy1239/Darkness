@@ -1,5 +1,7 @@
 #include "Room1Scene.hpp"
 #include "Room2Scene.hpp"
+#include "WinScene.hpp"
+#include "LoseScene.hpp"
 #include "PlayerSelectScene.hpp"
 #include "PlayScene.hpp"
 #include "Player.hpp"
@@ -21,6 +23,7 @@ void Room2Scene::Initialize() {
     role = new Player(gender,50,halfH-75,40,40);
     box = new Box(2,125,130,128,128);
     elderman = new Box(7,w-340,190,40,40); // 7 for oldman
+    trap = new Trap(0,0,0,0);
     door = new Door();
     KEY = new Key(false,w-100,h-80,50,50);
     subtitle = new Subtitle2(0,0,800,600);
@@ -39,19 +42,52 @@ void Room2Scene::Initialize() {
     
     background = al_load_bitmap("resources/images/play/room2scene.png");
     AddNewObject(new Engine::Label("Room 2", "lunchds.ttf", 36, 100, 50 , 255, 255, 255, 255, 0.5, 0.5));
-    bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
-    al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
-    al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
-    al_play_sample_instance(bgmInstance);
+    if(IsMute==1){
+        bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
+        al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
+        al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
+        al_play_sample_instance(bgmInstance);
+    }
     //
     
     
 }
+bool Room2Scene::TrapTrap(){
+    
+    int Rx = role->Position.x ;
+    int Ry = role->Position.y;
+    int x1 = trap->Position.x - role->Size.x - 40;
+    int x2 = trap->Position.x + trap->Size.x-30;
+    int y1 = trap->Position.y - role->Size.y;
+    int y2 = trap->Position.y + trap->Size.y-50;
+    
+    if(Rx>x1&&Rx<x2&Ry>y1&&Ry<y2)
+        return true;
+    else
+        return false;
+    
+    return false;
+}
 void Room2Scene::Update(float deltaTime){
     //box->Update(deltaTime);
     role->Update(deltaTime);
-    if(door->opendoor)
+    if(door->opendoor){
+        WinScene* scene = dynamic_cast<WinScene*>(Engine::GameEngine::GetInstance().GetScene("win"));
+        scene->IsMute = IsMute;
         Engine::GameEngine::GetInstance().ChangeScene("win");
+        
+    }
+    
+    if(TrapTrap()){
+        LoseScene* scene = dynamic_cast<LoseScene*>(Engine::GameEngine::GetInstance().GetScene("lose"));
+        scene->IsMute = IsMute;
+        role->Position.x = 50;
+        role->Position.y = 325;
+        lives--;
+        if(lives==0){
+            Engine::GameEngine::GetInstance().ChangeScene("lose");
+        }
+    }
     //if(door->state==9)door->Update(deltaTime);
     
 }

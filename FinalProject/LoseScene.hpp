@@ -10,6 +10,7 @@ public:
 	void Initialize() override;
 	void BackOnClick(int stage);
     void Draw()const override;
+    int IsMute;
 };
 
 #endif // LOSESCENE_HPP

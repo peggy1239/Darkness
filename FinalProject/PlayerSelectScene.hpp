@@ -13,6 +13,7 @@ public:
 	void StartOnClick(int stage);
 	void BGMSlideOnValueChanged(float value);
 	void SFXSlideOnValueChanged(float value);
+    int IsMute;//0 for mute
 };
 
 #endif // PlayerSelectScene_HPP

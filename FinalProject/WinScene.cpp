@@ -19,8 +19,8 @@ void WinScene::Initialize() {
     btn = new Engine::ImageButton("lose/exit1.png", "lose/exit2.png", halfW +30, halfH * 3 / 2 - 100, 280, 120);//EXIT
     btn->SetOnClickCallback(std::bind(&WinScene::BackOnClick, this, 2));
     AddNewControlObject(btn);
-    
-	AudioHelper::PlayAudio("win.ogg");
+    if(IsMute==1)
+	 AudioHelper::PlayAudio("win.ogg");
 }
 void WinScene::Update(float deltaTime) {
 	

@@ -35,6 +35,7 @@ public:
     Subtitle* subtitle;
     Box *box,*heart[5];
     Trap* trap;
+    int IsMute;
     int sub;
     bool subtitling;
     bool key = false; //whether have key or not

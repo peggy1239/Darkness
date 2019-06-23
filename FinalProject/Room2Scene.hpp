@@ -31,10 +31,10 @@ public:
     Box *box,*heart[5];
     Box* elderman;
     Subtitle2* subtitle;
-    
+    Trap* trap;
     bool subtitling;
-    
-    
+    bool TrapTrap();
+    int IsMute;
     int key = 0; //whether have key or not
     bool findOld = false;// if find elderman ->true;
     bool keyState[4]={false};

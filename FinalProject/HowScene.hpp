@@ -18,6 +18,7 @@ class HowScene final : public Engine::IScene {
 private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
 public:
+    int IsMute;
     explicit HowScene() = default;
     void Initialize() override;
     void BackOnClick(int stage);

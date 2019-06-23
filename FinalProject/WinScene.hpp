@@ -13,6 +13,7 @@ public:
 	void Update(float deltaTime) override;
 	void BackOnClick(int stage);
     void Draw()const override;
+    int IsMute;
 };
 
 #endif // WINSCENE_HPP

@@ -1,6 +1,7 @@
 #include "StartScene.hpp"
 #include "PlayerSelectScene.hpp"
 #include "PlayScene.hpp"
+#include "HowScene.hpp"
 #include "AudioHelper.hpp"
 #include "LOG.hpp"
 
@@ -42,8 +43,10 @@ void StartScene::BackOnClick(int stage) {
     //Engine::GameEngine::GetInstance().ChangeScene("stage-select");
     
     //PlayScene* scene = dynamic_cast<PlayScene*>(Engine::GameEngine::GetInstance().GetScene("stage-select"));
+    HowScene* scene = dynamic_cast<HowScene*>(Engine::GameEngine::GetInstance().GetScene("how"));
     //scene->MapId = stage;
     if(stage==1){
+        scene->IsMute = IsMute;
         Engine::GameEngine::GetInstance().ChangeScene("how");
     }
     else if(stage==2){
@@ -64,9 +67,9 @@ void StartScene::Draw() const{
 }
 
 void StartScene::OnKeyDown(int keyCode){
-    
+    PlayerSelectScene* scene = dynamic_cast<PlayerSelectScene*>(Engine::GameEngine::GetInstance().GetScene("player-select"));
     if(keyCode==ALLEGRO_KEY_ENTER){
-        
+        scene->IsMute = IsMute;
         Engine::GameEngine::GetInstance().ChangeScene("player-select");
     }
     

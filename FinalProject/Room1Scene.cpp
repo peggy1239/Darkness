@@ -1,5 +1,6 @@
 #include "Room1Scene.hpp"
 #include "Room2Scene.hpp"
+#include "LoseScene.hpp"
 #include "PlayerSelectScene.hpp"
 #include "PlayScene.hpp"
 #include "Player.hpp"
@@ -35,12 +36,12 @@ void Room1Scene::Initialize() {
     
     background = al_load_bitmap("resources/images/play/playscene.png");
     AddNewObject(new Engine::Label("Room 1", "lunchds.ttf", 36, 100, 50 , 255, 255, 255, 255, 0.5, 0.5));
-    
-    bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
-    al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
-    al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
-    al_play_sample_instance(bgmInstance);
-    
+    if(IsMute==1){
+        bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
+        al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
+        al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
+        al_play_sample_instance(bgmInstance);
+    }
     //
     
     
@@ -49,10 +50,10 @@ bool Room1Scene::TrapTrap(){
     
     int Rx = role->Position.x ;
     int Ry = role->Position.y;
-    int x1 = trap->Position.x - role->Size.x - 50;
-    int x2 = trap->Position.x + trap->Size.x;
+    int x1 = trap->Position.x - role->Size.x - 40;
+    int x2 = trap->Position.x + trap->Size.x-30;
     int y1 = trap->Position.y - role->Size.y;
-    int y2 = trap->Position.y + trap->Size.y-20;
+    int y2 = trap->Position.y + trap->Size.y-50;
     
     if(Rx>x1&&Rx<x2&Ry>y1&&Ry<y2)
         return true;
@@ -64,13 +65,18 @@ bool Room1Scene::TrapTrap(){
 void Room1Scene::Update(float deltaTime){
     //box->Update(deltaTime);
     role->Update(deltaTime);
-    Room2Scene* scene = dynamic_cast<Room2Scene*>(Engine::GameEngine::GetInstance().GetScene("room2"));
-    scene->gender = gender;
-    scene->lives = lives;
-    if(door->opendoor)
+    
+    
+    if(door->opendoor){
+        Room2Scene* scene = dynamic_cast<Room2Scene*>(Engine::GameEngine::GetInstance().GetScene("room2"));
+        scene->gender = gender;
+        scene->lives = lives;
+        scene->IsMute = IsMute;
         Engine::GameEngine::GetInstance().ChangeScene("room2");
+    }
     if(TrapTrap()){
-        
+        LoseScene* scene = dynamic_cast<LoseScene*>(Engine::GameEngine::GetInstance().GetScene("lose"));
+        scene->IsMute = IsMute;
         role->Position.x = 50;
         role->Position.y = 325;
         lives--;

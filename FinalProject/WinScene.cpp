@@ -3,6 +3,8 @@
 #include "Label.hpp"
 #include "AudioHelper.hpp"
 #include "PlayScene.hpp"
+#include "PlayerSelectScene.hpp"
+#include "StartScene.hpp"
 
 void WinScene::Initialize() {
 	ticks = 0;
@@ -27,13 +29,17 @@ void WinScene::Update(float deltaTime) {
 }
 void WinScene::BackOnClick(int stage) {
 	// Change to select scene.
-    Room1Scene* scene = dynamic_cast<Room1Scene*>(Engine::GameEngine::GetInstance().GetScene("room1"));
+    
     if(stage==1){
-        scene->key = false;
-        Engine::GameEngine::GetInstance().ChangeScene("room1");
+        Engine::GameEngine::GetInstance().ChangeScene("player-select");
+        PlayerSelectScene* scene = dynamic_cast<PlayerSelectScene*>(Engine::GameEngine::GetInstance().GetScene("player-select"));
+        scene->IsMute = IsMute;
     }
-    else
+    else{
+        StartScene* scene = dynamic_cast<StartScene*>(Engine::GameEngine::GetInstance().GetScene("start"));
+        scene->IsMute = IsMute;
         Engine::GameEngine::GetInstance().ChangeScene("start");
+    }
 }
 void WinScene::Draw() const{
     ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/win/winscene.png");

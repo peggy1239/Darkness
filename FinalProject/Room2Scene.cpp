@@ -43,10 +43,10 @@ void Room2Scene::Initialize() {
     background = al_load_bitmap("resources/images/play/room2scene.png");
     AddNewObject(new Engine::Label("Room 2", "lunchds.ttf", 36, 100, 50 , 255, 255, 255, 255, 0.5, 0.5));
     if(IsMute==1){
-    bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
-    al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
-    al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
-    al_play_sample_instance(bgmInstance);
+        bgmInstance = al_create_sample_instance(Engine::Resources::GetInstance().GetSample("room.ogg").get());
+        al_set_sample_instance_playmode(bgmInstance, ALLEGRO_PLAYMODE_LOOP);
+        al_attach_sample_instance_to_mixer(bgmInstance, al_get_default_mixer());
+        al_play_sample_instance(bgmInstance);
     }
     //
     
@@ -175,87 +175,118 @@ bool Room2Scene::InfrontOld(){
 
 void Room2Scene::OnKeyDown(int keyCode){
     
+    
     if(keyCode==ALLEGRO_KEY_SPACE){
         std::cout << role->Position.x <<"|"<<role->Position.y<<std::endl;
         std::cout << "InfrontOld: " << InfrontOld() << std::endl;
+        std::cout << "subtitle: " << subtitle -> state << std::endl;
     }
     
-    if(keyCode==ALLEGRO_KEY_UP){
-        role->keyState[0] = true;
-        if(role->directions!=0){
-            //keyState[role->directions] = false;
-            role->directions = 0;
+    if (!subtitling)
+    {
+        if(keyCode==ALLEGRO_KEY_UP){
+            role->keyState[0] = true;
+            if(role->directions!=0){
+                //keyState[role->directions] = false;
+                role->directions = 0;
+            }
+            
         }
-        
-    }
-    if(keyCode==ALLEGRO_KEY_DOWN){
-        role->keyState[1] = true;
-        if(role->directions!=1){
-            //keyState[role->directions] = false;
-            role->directions = 1;
+        if(keyCode==ALLEGRO_KEY_DOWN){
+            role->keyState[1] = true;
+            if(role->directions!=1){
+                //keyState[role->directions] = false;
+                role->directions = 1;
+            }
+            
         }
-        
-    }
-    if(keyCode==ALLEGRO_KEY_LEFT){
-        role->keyState[2] = true;
-        if(role->directions!=2){
-            //keyState[role->directions] = false;
-            role->directions = 2;
+        if(keyCode==ALLEGRO_KEY_LEFT){
+            role->keyState[2] = true;
+            if(role->directions!=2){
+                //keyState[role->directions] = false;
+                role->directions = 2;
+            }
         }
-    }
-    if(keyCode==ALLEGRO_KEY_RIGHT){
-        role->keyState[3] = true;
-        if(role->directions!=3){
-            //keyState[role->directions] = false;
-            role->directions = 3;
+        if(keyCode==ALLEGRO_KEY_RIGHT){
+            role->keyState[3] = true;
+            if(role->directions!=3){
+                //keyState[role->directions] = false;
+                role->directions = 3;
+            }
         }
-    }
-    if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear() && box->visible && key == 1){
-        box->state = 1;
-        key = 2;
-        KEY->visible = true;
-        std::cout << "KEY: " << key << std::endl;
     }
     
-    if(keyCode==ALLEGRO_KEY_SPACE && InfrontOld()){
+    /*
+     if(keyCode==ALLEGRO_KEY_SPACE && BoxAndPlayerIsNear() && box->visible && key == 1){
+     box->state = 1;
+     key = 2;
+     KEY->visible = true;
+     std::cout << "KEY: " << key << std::endl;
+     }
+     */
+    
+    if(keyCode==ALLEGRO_KEY_SPACE && InfrontOld() && key != 2){
         subtitle -> state = 0;
-        std::cout << "END GAME"<< std::endl;
         subtitle -> visible = true;
         subtitling = true;
     }
     
-    if (subtitling == true && keyCode==ALLEGRO_KEY_A)
+    if (subtitling == true && InfrontOld() && keyCode==ALLEGRO_KEY_A)
     {
         subtitle -> visible = false;
+        subtitling = false;
         key = 1;
     }
-    if (subtitling == true && keyCode==ALLEGRO_KEY_B)
+    if (subtitling == true && InfrontOld() && keyCode==ALLEGRO_KEY_B)
     {
         subtitle -> visible = false;
+        subtitling = false;
         key = 0;
     }
     
-    if (keyCode==ALLEGRO_KEY_SPACE && subtitle -> state == 1)
+    
+    
+    if (keyCode==ALLEGRO_KEY_SPACE && (subtitle -> state == 1||subtitle -> state == 2))
     {
         subtitling = false;
         subtitle -> visible = false;
-        subtitle -> state = 2;
+        subtitle -> state = 3;
     }
     
     
-    else if(keyCode==ALLEGRO_KEY_SPACE && InfrontDoor())
+    else if(keyCode==ALLEGRO_KEY_SPACE)
     {
-        if (key==2)
+        if (InfrontDoor())
         {
-            door->state = 9;
-            role->opendoor = true;
-            std::cout << "DOOR: " << door -> state << std::endl;
+            
+            if (key==2)
+            {
+                door->state = 9;
+                role->opendoor = true;
+                std::cout << "DOOR: " << door -> state << std::endl;
+            }
+            if (key == 0 || key == 1)
+            {
+                subtitling = true;
+                subtitle -> visible =  true;
+                subtitle -> state = 1;
+            }
         }
-        else
+        else if (BoxAndPlayerIsNear())
         {
-            subtitling = true;
-            subtitle -> visible =  true;
-            subtitle -> state = 1;
+            if (key!=1)
+            {
+                subtitling = true;
+                subtitle -> visible =  true;
+                subtitle -> state = 2;
+            }
+            else
+            {
+                box->state = 1;
+                key = 2;
+                KEY->visible = true;
+                std::cout << "KEY: " << key << std::endl;
+            }
         }
     }
     

@@ -26,7 +26,7 @@
                   moduleName = "FinalProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/peichieh/Desktop/REPOS/FinalProject/FinalProject/TurretButton.cpp"
-                  timestampString = "583001070.0382349"
+                  timestampString = "583037490.824104"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "7"
@@ -41,7 +41,7 @@
                   moduleName = "FinalProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/peichieh/Desktop/REPOS/FinalProject/FinalProject/TurretButton.cpp"
-                  timestampString = "583001070.0403171"
+                  timestampString = "583037490.826427"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "7"
@@ -49,6 +49,22 @@
                   offsetFromSymbolStart = "49">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WinScene.cpp"
+            timestampString = "583037099.687152"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "WinScene::Draw()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

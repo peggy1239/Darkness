@@ -1,6 +1,8 @@
 #include "LoseScene.hpp"
 #include "Label.hpp"
 #include "AudioHelper.hpp"
+#include "StartScene.hpp"
+#include "PlayerSelectScene.hpp"
 
 void LoseScene::Initialize() {
 	// TODO 1 (2/2): You can imitate the 2 files: 'LoseScene.hpp', 'LoseScene.cpp' to implement your start scene.
@@ -27,10 +29,16 @@ void LoseScene::BackOnClick(int stage) {
 	// Change to select scene.
     
     
-	if(stage==1)
+    if(stage==1){
         Engine::GameEngine::GetInstance().ChangeScene("player-select");
-    else
+        PlayerSelectScene* scene = dynamic_cast<PlayerSelectScene*>(Engine::GameEngine::GetInstance().GetScene("player-select"));
+        scene->IsMute = IsMute;
+    }
+    else{
+        StartScene* scene = dynamic_cast<StartScene*>(Engine::GameEngine::GetInstance().GetScene("start"));
+        scene->IsMute = IsMute;
         Engine::GameEngine::GetInstance().ChangeScene("start");
+    }
 }
 void LoseScene::Draw() const{
     ALLEGRO_BITMAP* StartImg = al_load_bitmap("resources/images/lose/losescene.png");

@@ -5,6 +5,7 @@ Subtitle2::Subtitle2(float x,float y,float w,float h){
     
     subpicture[0] = al_load_bitmap("resources/images/play/room2sub1.png");
     subpicture[1] = al_load_bitmap("resources/images/play/doorlocked.png");
+    subpicture[2] = al_load_bitmap("resources/images/play/boxlocked.png");
     
     Position.x = x;
     Position.y = y;

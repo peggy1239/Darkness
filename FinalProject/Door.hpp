@@ -25,12 +25,9 @@ public:
     Engine::Point Position;
     Engine::Point Size;
     int state = 0;//false for close
-    int totalstate;
-    int nowstate;
     bool opendoor;
     std::vector<ALLEGRO_BITMAP*> picture = {NULL};
     Door();
-    void Update(float deltatime);
     //void Update(float deltaTime) ;
     void Draw();
     ~Door();

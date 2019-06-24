@@ -20,8 +20,7 @@ Door::Door(){
             std::cout << "error in "<<i<<std::endl;
     }
      */
-    nowstate = 1;
-    totalstate = 9;
+
     Position.x = 30;
     Position.y = -25;
     Size.x = 800;
@@ -30,22 +29,6 @@ Door::Door(){
     opendoor = false;
 }
 
-
-
-void Door::Update(float deltaTime) {
-    
-    al_draw_bitmap(picture[nowstate], Position.x, Position.y, 0);
-    if (nowstate == 9)
-        opendoor = true;
-    //nowstate+=2;
-    /*
-    if (nowstate>9) {
-        opendoor = true;
-        return;
-    }
-     */
-    //Update(deltaTime);
-}
 
 void Door::Draw(){
 

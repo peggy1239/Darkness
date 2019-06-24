@@ -10,6 +10,7 @@ private:
     ALLEGRO_SAMPLE_INSTANCE* bgmInstance;
 public:
     int IsMute;
+    ALLEGRO_BITMAP* mute1,*mute2;
     explicit StartScene() = default;
     void Initialize() override;
     void BackOnClick(int stage);
